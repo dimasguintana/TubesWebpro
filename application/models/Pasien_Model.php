@@ -6,6 +6,7 @@ class Pasien_Model extends CI_Model {
 	public function getAllPasien(){
 		return $this->db->get('pasien')->result_array();
 	}
+
 	public function tambahDataPasien(){
 		$data = [
 			"nama_pasien" => $this->input->post('namaP',true),
@@ -15,8 +16,6 @@ class Pasien_Model extends CI_Model {
 		];
 		return $this->db->insert('pasien', $object);
 	}
-
-	
 
 }
 
