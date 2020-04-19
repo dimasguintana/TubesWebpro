@@ -3,11 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Jadwal_Model extends CI_Model {
 
-	public function __construct()
-	{
-		parent::__construct();
-	}
-
 	public function getJadwal()
 	{
 		return $this->db->get('jadwal')->result_array();
