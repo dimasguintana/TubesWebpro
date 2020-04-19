@@ -12,7 +12,7 @@ class Pasien_Model extends CI_Model {
 			"alamat" => $this->input->post('alamat',true),
 			"usia" => $this->input->post('usia', true),
 		];
-		return $this->db->insert('pasien', $object);
+		return $this->db->insert('pasien', $data);
 	}
 	
 
