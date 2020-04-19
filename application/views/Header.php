@@ -1,65 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Sistem Informasi</title>
-  <link rel="shortcut icon" href="<?php echo base_url('assets/img/logo.png') ?>">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #696969;">
+  <a class="navbar-brand landing-logo" href="<?= base_url() ?>">
+    <img src="<?= base_url('assets/healthhome.png') ?>" alt="logo">
+    Health Home
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <style type="text/css">
-  	.navbar-red {
-    	background-color: #b01116;
-    	color: #fff;
-		}
-	  .navbar-red .navbar-brand {
-    	color: #fff;
-	  }
-	  .navbar-red .navbar-nav > li > a {
-    	color: #fff;
-	  }
-    .navbar-red .navbar-nav > li > a:hover,
-    .navbar-red .navbar-nav > li > a:focus {
-      background-color: #ee1c25;
-      color: #fff;
-    }
-	  .box {
-		  margin-top: 80px;
-      margin-bottom: 20px;
-		  padding: 10px;
-		  background-color: #fff	;
-		  border-radius: 5px;
-	  }
-	  body {
-		  background-color: #D8D8D8;
-	  }
-  </style>
-</head>
-<body>
-<nav class="navbar navbar-red navbar-fixed-top">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#"><?php echo $this->data['kampus'] ?></a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="<?php echo base_url() ?>">Home</a></li>
-      <li><!-- <a href="<?php echo base_url('index.php/web/mahasiswa') ?>"> -->Pasien<!-- </a> --></li>
-      <li><!-- <a href="<?php echo base_url('index.php/web/jurusan') ?>"> -->Doktern<!-- </a> --></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right text-center">
-      <li class="dropdown pull-right">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Akun
-        <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="#"><?php echo $this->data['nim'] ?></a></li>
-          <li><a href="#"><?php echo $this->data['nama'] ?></a></li>
-        </ul>
+  <div class="collapse navbar-collapse landing-navbar-item" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="#">About</a> -->
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="<?= site_url('Landing/login') ?>">Sign In</a> -->
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="<?= site_url('Landing/registrasi') ?>">Sign Up</a> -->
       </li>
     </ul>
   </div>
 </nav>
+
+<div class="landing-content d-flex justify-content-center align-items-center flex-wrap">
+  <div class="landing-vector">
+    <img src="<?= base_url('assets/stetoskop.png') ?>" alt="vector" width="100%">
+  </div>
+  <div class="landing-text-wrapper p-3 p-md-none">
+    <div class="landing-text">
+      <div class="text-center">
+        <a href="<?= site_url('Landing/registrasi') ?>" class="big-sign-up-button">Sign Up Here !!!</a>
+      </div>
+    </div>
+    <div class="small-circle"></div>
+  </div>
+  <div class="big-circle"></div>
+</div>
