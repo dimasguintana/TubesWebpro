@@ -6,11 +6,25 @@ class Controller_Pasien extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('Pasien_Model');
-		$this->load->library('form_validation');
 	}
 	public function index()
 	{
-		
+		$content['main_view'] = 'View_Pasien';
+		$content['title'] = 'Data Pasien';
+
+		$this->load->view('Pasien_View', $content);
+	}
+
+	public function allpasien()
+	{
+		$data = $this->Pasien_Model->getAllPasien();
+
+		echo json_encode($data);
+	}
+
+	public function tambah_pasien(){
+		$this->Pasien_Model->tambahDataPasien();
+		$this->session->$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data'.'Berhasil Ditambah');
 	}
 
 }
