@@ -15,7 +15,7 @@
   </div>
 <script type="text/javascript">
   $(document).ready(function() {
-    let table = $('#datapasien').DataTable({
+    let table = $('#datapasien').dataTable({
       "searching": false,
       "ordering": true,
       "order": [
