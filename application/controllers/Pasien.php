@@ -23,8 +23,20 @@ class Pasien extends CI_Controller {
 	}
 
 	public function tambahPasien(){
-		$this->Pasien_Model->tambahDataPasien();
-		$this->session->$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data'.'Berhasil Ditambah');
+		foreach ($_POST as $key => $value) {
+        	$d[$key] = $value;
+      	}
+		$data = [
+			"username_pasien" => $d['usernameP'],
+			"password_pasien" => $d['passwordP'],
+			"nama" => $d['namaP'],
+			"alamat" => $d['alamatP'],
+			"usia" => $d['usiaP'],
+			"jeniskelamin" => $d['jkP'],
+		];
+		$this->Pasien_Model->tambahDataPasien($data);
+		$insert["cek"] = true;
+		echo json_encode($insert);
 	}
 
 }
