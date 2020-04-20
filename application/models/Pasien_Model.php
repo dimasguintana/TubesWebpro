@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pasien_Model extends CI_Model {
+
 	public function getAllPasien(){
 		return $this->db->get('pasien')->result_array();
 	}
@@ -14,6 +15,7 @@ class Pasien_Model extends CI_Model {
 		];
 		return $this->db->insert('pasien', $data);
 	}
+
 	
 
 }
