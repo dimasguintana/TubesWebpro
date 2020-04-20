@@ -7,7 +7,6 @@ class Welcome extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->helper('form');
-		$this->load->model('Pasien_Model');
 	}
 
 	public function index()
@@ -26,8 +25,8 @@ class Welcome extends CI_Controller {
 
 	public function login()
 	{
-		$this->form_validation->set_rules('username', 'Username');
-		$this->form_validation->set_rules('password', 'Password');
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
 
 		$data['main_view'] = 'Login_View';
 		$data['title'] = 'Login';
@@ -35,29 +34,30 @@ class Welcome extends CI_Controller {
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('Halaman', $data);
 		} else {
-			$this->input->post('username');
-			$this->input->post('password');
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
 
 			$peran;
 			$query1 = $this->db->get_where('pasien', ['username' => $username])->row_array();
-			if ($query1->num_rows() > 0) {
+
+			if ($query1) {
 				$peran = 'pasien';
 			}
 
 			$query2 = $this->db->get_where('dokter', ['username' => $username])->row_array();
-			if ($query2->num_rows() > 0) {
+			if ($query2) {
 				$peran = 'dokter';
 			}
 
 			$query3 = $this->db->get_where('admin', ['username' => $username])->row_array();
-			if ($query3->num_rows() > 0) {
+			if ($query3) {
 				$peran = 'admin';
 			}
 
 			//Jika username valid di pasien
 			if ($peran == 'pasien') {
 
-				if (password_verify($password, $query1['password'])) {
+				if ($password == $query1['password']) {
 					$data = [
 						'username' => $query1['username'],
 						'nama' => $query1['nama'],
@@ -65,10 +65,11 @@ class Welcome extends CI_Controller {
 					];
 					$this->session->set_userdata($data);
                 	$data['main_view'] = 'Pasien_View';
+                	$data['title'] = 'Pasien';
 					$this->load->view('Halaman', $data);
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invalid</div>');
-					redirect('Pasien/allPasien');
+					redirect('Welcome/login');
 				}
 				//Jika username valid di dokter
 			} else if ($peran == 'dokter') {
@@ -82,7 +83,7 @@ class Welcome extends CI_Controller {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invalid</div>');
 					redirect('Pasien/allPasien');
 				}
-				//Jika username valid di admin
+			// 	//Jika username valid di admin
 			} else if ($peran == 'admin') {
 				if (password_verify($password, $query3['password'])) {
 					$data = [

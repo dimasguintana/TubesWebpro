@@ -17,38 +17,50 @@
 </head>
 <body>
   <?php $this->load->view($main_view); ?>
-  
-  <!-- Modal Tambah Mahasiswa -->
-<!-- <div class="modal fade" id="edit1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+
+  <!-- Modal Tambah Pasien -->
+<div class="modal fade" id="tambahpasien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
       <center><h2>TAMBAH DATA PASIEN</h2></center>
       </div>
-      <div class="modal-body"> -->
+      <div class="modal-body">
       <!-- isi form ini -->
-      <!-- <form method="POST" action="<?= base_url('index.php/Web/tambahmahasiswa'); ?>">
+      <form method="POST" id="formTambah">
         <div class="form-group">
-          <label for="formGroupExampleInput">NIM</label>
-          <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Nim" name="nim" required >
+          <label for="formGroupExampleInput">Username</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="UsernamePasien" name="usernameP" required >
         </div>
         <div class="form-group">
-          <label for="formGroupExampleInput">Nama</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nama" name="nama"required>
+          <label for="formGroupExampleInput">Password</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="PasswordPasien" name="passwordP"required>
         </div>
         <div class="form-group">
-          <label for="formGroupExampleInput2">Kelas</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Kelas" name="kelas" required>
+          <label for="formGroupExampleInput2">Nama</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="NamaPasien" name="namaP" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Alamat</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="AlamatPasien" name="alamatP" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Usia</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="UsiaPasien" name="usiaP" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Jenis Kelamin</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="JKPasien" name="jkP" required>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <input  type="submit" class="btn btn-primary" id="hapus" value="Submit" placeholder="Simpan">
-      </form>
+        <button type="submit" class="btn btn-primary" id="tambahSubmit">Submit</button>
       </div>
+    </form>
     </div>
   </div>
-</div> -->
+</div>
 
 </body>
 </html>
