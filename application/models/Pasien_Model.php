@@ -9,10 +9,12 @@ class Pasien_Model extends CI_Model {
 
 	public function tambahDataPasien(){
 		$data = [
-			"nama_pasien" => $this->input->post('namaP',true),
-			"jenis_kelamin" => $this->input->post('jk',true),
-			"alamat" => $this->input->post('alamat',true),
-			"usia" => $this->input->post('usia', true),
+			"username_pasien" => $this->input->post('usernameP',true),
+			"password_pasien" => $this->input->post('passwordP',true),
+			"nama" => $this->input->post('namaP',true),
+			"alamat" => $this->input->post('alamatP', true),
+			"usia" => $this->input->post('usiaP', true),
+			"jeniskelamin" => $this->input->post('jkP', true),
 		];
 		return $this->db->insert('pasien', $data);
 	}
