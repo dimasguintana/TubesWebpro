@@ -10,18 +10,18 @@ class Jadwal extends CI_Controller {
         $this->load->model('Jadwal_Model');
     }
 
-    public function index()
-    {
-		$content['main_view'] = 'Jadwal_View';
-		$content['title'] = 'Data Jadwal';
+  //   public function index()
+  //   {
+		// $content['main_view'] = 'Jadwal_View';
+		// $content['title'] = 'Data Jadwal';
 
-		$this->load->view('Halaman', $content);
-    }
+		// $this->load->view('Halaman', $content);
+  //   }
 
-    public function allJadwal()
-    {
-        $data = $this->Jadwal_Model->getJadwal();
-        echo json_encode($data);
-    }
+  //   public function allJadwal()
+  //   {
+  //       $data = $this->Jadwal_Model->getJadwal();
+  //       echo json_encode($data);
+  //   }
 
 }
