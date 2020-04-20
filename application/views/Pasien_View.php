@@ -1,50 +1,130 @@
-<!-- GET SEMUA DATA PASIEN -->
-  <div class="py-5">
-    <h1 class="text-center"><?= $title ?></h1>
-    <div class="table-responsive container">                <!-- id table -->
-      <table class="table table-dark table-hover table-bordered" id="datapasien" style="width: 100%">
+  <div class="container">
+    <div class="box">
+      <h2>Data Pasien</h2>
+      <p>Tabel Data Pasien</p>            
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit1">TAMBAH Pasien</button>
+      <br><br>
+      <table class="table table-bordered" id="table">
         <thead>
           <tr>
-            <th>nama</th>
-            <th>alamat</th>
-            <th>usia</th>
+            <th>no</th>
+            <th>Id Pasien</th>
+            <th>Nama</th>
+            <th>Jenis Kelamin</th>
+            <th>Alamat</th>
+            <th>Usia</th>
           </tr>
         </thead>
+        <tbody>
+          <?php $no=1; foreach ($data as $d ) {?>
+          <tr>
+        <!--HINT UNTUK MENGHAPUS USER KALIAN DAPAT MENGGUNAKAN FORM, MENGGUNAKAN ANCHOR ATAU HREF PADA BUTTON-->
+            <form action="">
+              <td><?php echo $no++ ?></td>
+              <td><?php echo $d->id_pasien ?></td>
+              <td><?php echo $d->Nama ?></td>
+              <td><?php echo $d->jenis_kelamin ?></td>
+              <td><?php echo $d->alamat ?></td>
+              <td><?php echo $d->usia ?></td>
+
+              <!--BUTTON EDIT MAHASISWA-->
+             <!--  <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?php echo $d->nim ?>"><i class="fas fa-user-edit"></i></button></td>
+              BUTTON HAPUS --- ISI LENGKAPI BUTTON INI 
+              <td><a type="button" class="btn btn-danger"  href="<?= base_url('index.php/web/hapusmahasiswa/').$d->nim?>" onClick="return confirm('Apakah Anda Yakin?')" ><i class="fas fa-user-times"></i></a></td> -->
+            </form>
+          </tr>
+          <?php } ?>
+        </tbody>
       </table>
     </div>
   </div>
-<script type="text/javascript">
-  $(document).ready(function() {
-    let table = $('#datapasien').dataTable({
-      "searching": false,
-      "ordering": true,
-      "order": [
-        [1, 'asc']
-      ],
-      "ajax": {
-        "url": "<?= site_url('Pasien/allPasien') ?>",
-        "type": "GET",
-        "dataSrc": ""
-      },
-      "columns": [{
-          "data": "nama"
-        },
-        {
-          "data": "alamat"
-        },
-        {
-          "data": "usia"
-        }
-      ]
-  });
-  // $.ajax({
-  //   url:"<?= site_url('Controller_Pasien/allpasien')?>", 
-  //   type: "GET",
-  //   async : true,
-  //   dataType : "JSON",
-  //   success : function(data){
-  //     console.log(data);
-  //   }
-  // })
-  });
-</script>
+
+<!-- Modal Edit Mahasiswa -->
+
+<!-- <?php $no=1; foreach ($data as $d ) {?>
+  <div class="modal fade" id="edit<?php echo $d->nim ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <center><h2>EDIT DATA MAHASISWA </h2></center>
+        </div>
+        <div class="modal-body"> -->
+        <!-- isi form ini -->
+<!--         <form method="post" action="<?= base_url('index.php/web/editmahasiswa/').$d->nim?>">
+        <input type="hidden" class="form-control" id="formGroupExampleInput" placeholder="Nim" name="nim" value="<?php echo $d->nim ?>"  required>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Nama</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nama" name="nama"  value="<?php echo $d->nama ?>" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Kelas</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Kelas" name="kelas" value="<?php echo $d->kelas ?>" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Jurusan</label>
+            <select class="form-control" id="formGroupExampleInput2" name="jurusan" required>
+            <option value="<?php echo $d->id_jurusan; ?>" selected><?php echo $d->nama_jurusan.' - '.$d->fakultas;  ?></option>
+            <?php foreach ($dataJ as $c ) {?>
+                <option value="<?php echo $c->id_jurusan; ?>"><?php echo $c->nama_jurusan.' - '.$c->fakultas;  ?></option>
+            <?php } ?>
+            </select>            
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+        <input  type="submit" class="btn btn-primary" id="hapus" value="Submit" placeholder="Simpan">
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+<?php } ?> -->
+
+<!-- Modal Tambah Mahasiswa -->
+<div class="modal fade" id="edit1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <center><h2>TAMBAH DATA PASIEN</h2></center>
+      </div>
+      <div class="modal-body">
+      <!-- isi form ini -->
+      <form method="POST" action="<?= base_url('index.php/web/tambahmahasiswa/').$d->nim?>">
+        <div class="form-group">
+          <label for="formGroupExampleInput">NIM</label>
+          <input type="number" class="form-control" id="formGroupExampleInput" placeholder="Nim" name="nim" required >
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Nama</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Nama" name="nama"required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Kelas</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Kelas" name="kelas" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Jurusan</label>
+          <select class="form-control" id="formGroupExampleInput2" name="jurusan" required>
+          <?php foreach ($dataJ as $d ) {?>
+            <option value="<?php echo $d->id_jurusan; ?>" ><?php echo $d->nama_jurusan.' - '.$d->fakultas;  ?></option>
+          <?php } ?>
+          </select>            
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+        <input  type="submit" class="btn btn-primary" id="hapus" value="Submit" placeholder="Simpan">
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+  <script type="text/javascript">
+    $(document).ready( function () {
+        $('#table').DataTable();
+    } );
+  </script>
+</html>

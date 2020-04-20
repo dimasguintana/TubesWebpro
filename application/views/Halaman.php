@@ -17,7 +17,7 @@
 </head>
 <body>
   <?php $this->load->view($main_view); ?>
-
+  
   <!-- Modal Tambah Mahasiswa -->
 <!-- <div class="modal fade" id="edit1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
   <div class="modal-dialog" role="document">

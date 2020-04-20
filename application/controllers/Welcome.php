@@ -17,6 +17,13 @@ class Welcome extends CI_Controller {
 		$this->load->view('Halaman', $content);
 	}
 
+	public function register()
+	{
+		$content['main_view'] = 'Register_View';
+		$content['title'] = 'Register';
+		$this->load->view('Halaman', $content);
+	}
+
 	public function login()
 	{
 		$this->form_validation->set_rules('username', 'Username');
