@@ -14,7 +14,7 @@
       <div class="p-3 mb-2 text-black col-6 d-flex align-items-center justify-content-center flex-column ">
       <h1 style=" color: #FF4F5A; font-size: 50;
         -webkit-text-stroke-width: 0.5px;
-        -webkit-text-stroke-color: black;">Login</h1>
+        -webkit-text-stroke-color: black;"><?= $title ?></h1>
         <form class='p-5' method="POST" action="<?php echo site_url('Welcome/login') ?>" style= 'background-color: #FF4F5A; border-radius: 25px'>
         <div class="form-group">
           <label class='text-light' for="username">Username</label>
