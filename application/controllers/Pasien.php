@@ -17,7 +17,7 @@ class Pasien extends CI_Controller {
 
 	public function allPasien()
 	{
-		$data = $this->Pasien_Model->getAllPasien();
+		$data = $this->Pasien_Model->getPasien();
 
 		echo json_encode($data);
 	}
