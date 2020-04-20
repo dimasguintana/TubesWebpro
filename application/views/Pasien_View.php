@@ -1,7 +1,10 @@
 <!-- GET SEMUA DATA PASIEN -->
   <div class="py-5">
     <h1 class="text-center"><?= $title ?></h1>
-    <div class="table-responsive container">                <!-- id table -->
+    <div class="table-responsive container">
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-primary" data-target="#tambahpasien" data-toggle="modal">Tambah Pasien</button>
+    </div>                                                        <!-- id table -->
       <table class="table table-dark table-hover table-bordered" id="datapasien" style="width: 100%">
         <thead>
           <tr>
@@ -46,5 +49,25 @@
   //     console.log(data);
   //   }
   // })
+  $('#formTambah').on('submit', function(event) {
+      event.preventDefault();
+      let form = $(this);
+      $.ajax({
+        url: '<?= site_url('Pasien/tambahPasien') ?>',
+        type: 'post',
+        data: form.serialize(),
+        dataType: 'JSON',
+        success: function(data){
+          if (data.cek == true) {
+            $("#tambahpasien").modal('hide')
+            $('#datapasien').DataTable().ajax.reload()     
+          }
+          else {
+            console.log("error")
+          }
+        }
+      })
+      
   });
+});
 </script>
