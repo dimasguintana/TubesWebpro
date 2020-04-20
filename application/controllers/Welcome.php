@@ -6,6 +6,7 @@ class Welcome extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('form');
 		$this->load->model('Pasien_Model');
 	}
 
@@ -18,10 +19,10 @@ class Welcome extends CI_Controller {
 
 	public function login()
 	{
-		$this->form_validation->set_rules('username', 'Username', 'trim|required');
-		$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[3]');
+		$this->form_validation->set_rules('username', 'Username');
+		$this->form_validation->set_rules('password', 'Password');
 
-		$cdata['main_view'] = 'Login_View';
+		$data['main_view'] = 'Login_View';
 		$data['title'] = 'Login';
 
 		if ($this->form_validation->run() == FALSE) {
@@ -52,12 +53,15 @@ class Welcome extends CI_Controller {
 				if (password_verify($password, $query1['password'])) {
 					$data = [
 						'username' => $query1['username'],
-						'nama' => $query1['username'],
+						'nama' => $query1['nama'],
 						'peran' => $peran
 					];
+					$this->session->set_userdata($data);
+                	$data['main_view'] = 'Pasien_View';
+					$this->load->view('Halaman', $data);
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invalid</div>');
-					redirect('Welcome/login');
+					redirect('Pasien/allPasien');
 				}
 				//Jika username valid di dokter
 			} else if ($peran == 'dokter') {
@@ -69,7 +73,7 @@ class Welcome extends CI_Controller {
 					];
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invalid</div>');
-					redirect('Welcome/login');
+					redirect('Pasien/allPasien');
 				}
 				//Jika username valid di admin
 			} else if ($peran == 'admin') {
@@ -81,11 +85,12 @@ class Welcome extends CI_Controller {
 					];
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invalid</div>');
-					redirect('Welcome/login');
+					redirect('Pasien/allPasien');
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username Invalid</div>');
-				redirect('Welcome/login');
+				redirect('Pasien/allPasien');
+
 			}
 		}
 	}
