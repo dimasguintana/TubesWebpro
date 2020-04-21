@@ -18,7 +18,7 @@
 <body>
   <?php $this->load->view($main_view); ?>
 
-  <!-- Modal Tambah Pasien -->
+  <!-- Form Regist Pasien -->
 <div class="modal fade" id="tambahPasien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -64,7 +64,7 @@
 
 
 
-<!-- Modal Delete-->
+<!-- Modal Delete FIX-->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
