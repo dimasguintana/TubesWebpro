@@ -5,7 +5,7 @@
     <div class="d-flex justify-content-end">
       <button class="btn btn-primary" data-target="#tambahPasien" data-toggle="modal">Tambah Pasien</button>
     </div>                                                        <!-- id table -->
-      <table class="table table-dark table-hover table-bordered" id="datapasien" style="width: 100%">
+      <table class="table table-dark table-hover table-bordered" id="dataPasien" style="width: 100%">
         <thead>
           <tr>
             <th>Username</th>
@@ -20,7 +20,7 @@
   </div>
 <script type="text/javascript">
   $(document).ready(function() {
-    let table = $('#datapasien').dataTable({
+    let table = $('#dataPasien').dataTable({
       "searching": false,
       "ordering": true,
       "order": [
@@ -34,13 +34,10 @@
 
       "columns": [
         {
-          "data": "username_pasien"
+          "data": "username"
         },
         {
           "data": "nama"
-        },
-        {
-          "data": "jeniskelamin"
         },
         {
           "data": "alamat"
@@ -49,7 +46,7 @@
           "data": "usia"
         },
         {
-          "data": "username_pasien",
+          "data": "username",
           "render": function(data, type, row){
             return `<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-whatever="${data}"><i class="fas fa-user-times"></i></button>`
           }
@@ -76,7 +73,7 @@
         success: function(data){
           if (data.cek == true) {
             $("#tambahPasien").modal('hide')
-            $('#datapasien').DataTable().ajax.reload()     
+            $('#dataPasien').DataTable().ajax.reload()     
           }
           else {
             console.log("error")
@@ -84,6 +81,7 @@
         }
       })      
   });
+
   $('#deleteModal').on('show.bs.modal', function(event) {
         let username = $(event.relatedTarget).data('whatever');
         let del = $(this)
@@ -96,7 +94,7 @@
             dataType: "JSON"
           })
           $("#deleteModal").modal('hide')
-          $('#datapasien').DataTable().ajax.reload()
+          $('#dataPasien').DataTable().ajax.reload()
         })
     });
 });
