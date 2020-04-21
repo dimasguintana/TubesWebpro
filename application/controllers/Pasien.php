@@ -23,9 +23,6 @@ class Pasien extends CI_Controller {
 	}
 
 	public function tambahPasien(){
-		foreach ($_POST as $key => $value) {
-        	$d[$key] = $value;
-      	}
 		$data = [
 			"username" => $this->input->POST('usernameP', true),
 			"password" => $this->input->post('passwordP', true),

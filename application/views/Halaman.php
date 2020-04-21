@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.10/dist/sweetalert2.min.css" >
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.10/dist/sweetalert2.all.min.js" ></script>
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
@@ -19,14 +21,13 @@
   <?php $this->load->view($main_view); ?>
 
   <!-- Modal Tambah Pasien -->
-<div class="modal fade" id="tambahpasien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+<!-- <div class="modal fade" id="tambahpasien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
       <center><h2>TAMBAH DATA PASIEN</h2></center>
       </div>
       <div class="modal-body">
-      <!-- isi form ini -->
       <form method="POST" id="formTambah">
         <div class="form-group">
           <label for="formGroupExampleInput">Username</label>
@@ -60,7 +61,7 @@
     </form>
     </div>
   </div>
-</div>
+</div> -->
 
 </body>
 </html>
