@@ -27,8 +27,8 @@ class Pasien extends CI_Controller {
         	$d[$key] = $value;
       	}
 		$data = [
-			"username_pasien" => $d['usernameP'],
-			"password_pasien" => $d['passwordP'],
+			"username" => $d['usernameP'],
+			"password" => $d['passwordP'],
 			"nama" => $d['namaP'],
 			"alamat" => $d['alamatP'],
 			"usia" => $d['usiaP'],
