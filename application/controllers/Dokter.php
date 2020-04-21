@@ -15,6 +15,3 @@ class Dokter_Controller extends CI_Controller {
 	}
 
 }
-
-/* End of file Dokter_Controller.php */
-/* Location: ./application/controllers/Dokter_Controller.php */

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2020 at 01:52 PM
+-- Generation Time: Apr 21, 2020 at 12:32 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `username_admin` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -40,12 +40,19 @@ CREATE TABLE `admin` (
 --
 
 CREATE TABLE `dokter` (
-  `username_dokter` varchar(20) NOT NULL,
-  `password_dokter` varchar(30) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(30) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `rating` int(10) NOT NULL,
   `usia` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dokter`
+--
+
+INSERT INTO `dokter` (`username`, `password`, `nama`, `rating`, `usia`) VALUES
+('11', '11', 'samid', 10, 12);
 
 -- --------------------------------------------------------
 
@@ -70,8 +77,8 @@ CREATE TABLE `jadwal` (
 --
 
 CREATE TABLE `pasien` (
-  `username_pasien` varchar(20) NOT NULL,
-  `password_pasien` varchar(30) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(30) NOT NULL,
   `nama` varchar(50) NOT NULL,
   `alamat` varchar(50) NOT NULL,
   `usia` int(10) NOT NULL,
@@ -82,8 +89,9 @@ CREATE TABLE `pasien` (
 -- Dumping data for table `pasien`
 --
 
-INSERT INTO `pasien` (`username_pasien`, `password_pasien`, `nama`, `alamat`, `usia`, `jeniskelamin`) VALUES
-('1', '', 'Rendhy', 'Taman Cibaduyut', 20, 'Laki-Laki');
+INSERT INTO `pasien` (`username`, `password`, `nama`, `alamat`, `usia`, `jeniskelamin`) VALUES
+('1', '1', 'Rendhy', 'Taman Cibaduyut', 20, 'Laki-Laki'),
+('2', '2', 'qc', 'qc', 20, 'qc');
 
 --
 -- Indexes for dumped tables
@@ -93,13 +101,13 @@ INSERT INTO `pasien` (`username_pasien`, `password_pasien`, `nama`, `alamat`, `u
 -- Indexes for table `admin`
 --
 ALTER TABLE `admin`
-  ADD PRIMARY KEY (`username_admin`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `dokter`
 --
 ALTER TABLE `dokter`
-  ADD PRIMARY KEY (`username_dokter`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `jadwal`
@@ -114,7 +122,7 @@ ALTER TABLE `jadwal`
 -- Indexes for table `pasien`
 --
 ALTER TABLE `pasien`
-  ADD PRIMARY KEY (`username_pasien`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -134,9 +142,9 @@ ALTER TABLE `jadwal`
 -- Constraints for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  ADD CONSTRAINT `jadwal_ibfk_1` FOREIGN KEY (`username_pasien`) REFERENCES `pasien` (`username_pasien`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `jadwal_ibfk_2` FOREIGN KEY (`username_dokter`) REFERENCES `dokter` (`username_dokter`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `jadwal_ibfk_3` FOREIGN KEY (`username_admin`) REFERENCES `admin` (`username_admin`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `jadwal_ibfk_1` FOREIGN KEY (`username_pasien`) REFERENCES `pasien` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_ibfk_2` FOREIGN KEY (`username_dokter`) REFERENCES `dokter` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `jadwal_ibfk_3` FOREIGN KEY (`username_admin`) REFERENCES `admin` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
