@@ -7,10 +7,11 @@
 </nav> -->
 <?php $this->load->view('template/atas'); ?>
 <?= $this->session->flashdata('message'); ?>
-<div class="container-fluid "  >
+<div class="container-fluid " >
   <div class="row">
     <div style="height: 90vh; width: 100%" class="d-flex align-items-stretch">
-      <div class="col-6 d-flex align-items-center justify-content-center"><img src="<?= base_url('assets/doctor3.jpg') ?>"alt="logo" width='100%' height='450'></div>
+      <div class="col-6 d-flex align-items-center justify-content-center">
+        <img src="<?= base_url('assets/doctor3.jpg') ?>"alt="logo" width='100%' height='auto'></div>
       <div class="p-3 mb-2 text-black col-6 d-flex align-items-center justify-content-center flex-column ">
       <h1 style=" color: #FF4F5A; font-size: 50;
         -webkit-text-stroke-width: 0.5px;
@@ -29,7 +30,6 @@
         <a class='text-light' href="<?= site_url('Welcome/register') ?>">Sign up</a>
       </div>
       </form>
-      <?= $this->session->userdata('username')?>
       </div>
     </div>
   </div>
