@@ -20,47 +20,47 @@
 <body>
   <?php $this->load->view($main_view); ?>
 
-  <!-- Modal Tambah Pasien -->
 
-<!-- <div class="modal fade" id="tambahpasien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-
-
+ 
+  <!-- Modal Update Pasien -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
 
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <center><h2>TAMBAH DATA PASIEN</h2></center>
+      <center><h2>UPDATE DATA PASIEN</h2></center>
       </div>
       <div class="modal-body">
+
       <form method="POST" id="formTambah">
+
+      <!-- isi form ini -->
+      <form method="POST" id="formUpdate">
+
         <div class="form-group">
           <label for="formGroupExampleInput">Username</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="UsernamePasien" name="usernameP" required >
-        </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Password</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="PasswordPasien" name="passwordP"required>
+          <input type="text" class="form-control" id="usernInput" placeholder="UsernamePasien" name="usernameP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Nama</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="NamaPasien" name="namaP" required>
+          <input type="text" class="form-control" id="namaInput" placeholder="NamaPasien" name="namaP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Alamat</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="AlamatPasien" name="alamatP" required>
+          <input type="text" class="form-control" id="alamatInput" placeholder="AlamatPasien" name="alamatP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Usia</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="UsiaPasien" name="usiaP" required>
+          <input type="text" class="form-control" id="usiaInput" placeholder="UsiaPasien" name="usiaP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Jenis Kelamin</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="JKPasien" name="jkP" required>
+          <input type="text" class="form-control" id="jkInput" placeholder="JKPasien" name="jkP" required>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-primary" id="tambahSubmit">Submit</button>
+        <button type="submit" class="btn btn-primary" id="updateSubmit">Submit</button>
       </div>
     </form>
     </div>
@@ -69,7 +69,7 @@
 
 
 
-<!-- Modal Delete-->
+<!-- Modal Delete FIX-->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
