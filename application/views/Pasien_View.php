@@ -65,7 +65,7 @@
   //     console.log(data);
   //   }
   // })
-  $('#formTambah').on('submit', function(event) {
+  $('#formRegister').on('submit', function(event) {
       event.preventDefault();
       let form = $(this);
       $.ajax({
@@ -75,8 +75,7 @@
         dataType: 'JSON',
         success: function(data){
           if (data.cek == true) {
-            $("#tambahpasien").modal('hide')
-            $('#datapasien').DataTable().ajax.reload()     
+            alert("registrasi sukses")   
           }
           else {
             console.log("error")
