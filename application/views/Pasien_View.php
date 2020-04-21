@@ -48,7 +48,7 @@
         {
           "data": "username",
           "render": function(data, type, row){
-            return `<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-whatever="${data}"><i class="fas fa-user-times"></i></button>`
+            return `<button class="btn btn-danger" data-toggle="modal" data-target="#updateModal" data-whatever="${data}"><i class="fas fa-user-times"></i></button>`
           }
         }
       ]
@@ -79,5 +79,45 @@
           $('#dataPasien').DataTable().ajax.reload()
         })
     });
+
+  $('#updateModal').on('show.bs.modal', function(event) {
+    let username = $(event.relatedTarget).data('whatever');
+    $.ajax({
+      url: `<?= site_url('Pasien/getPasienByUsername/') ?>${username}`,
+      type: "GET",
+      dataType: "JSON",
+      success: function(data) {
+        if (data) {
+          $('#usernInput').val(data.username);
+          $('#namaInput').val(data.nama);
+          $('#alamatInput').val(data.alamat);
+          $('#usiaInput').val(data.usia);
+          $('#jkInput').val(data.jeniskelamin);
+        }
+      }
+    })
+    $('#formUpdate').on('submit', function(event) {
+      event.preventDefault();
+      let form = $(this)
+      $.ajax({
+        url: `<?= site_url('Pasien/updatePasien/') ?>${username}`,
+        type: "POST",
+        data: form.serialize(),
+        dataType: "JSON",
+        success: function(kesuksesan) {
+          if (kesuksesan.sukses) {
+            $("#updateModal").modal('hide')
+            $('#dataPasien').DataTable().ajax.reload()
+            $('#usernInput').val('');
+            $('#namaInput').val('');
+            $('#alamatInput').val('');
+            $('#usiaInput').val('');
+            $('#jkInput').val('');
+          }
+        }
+      })
+    })
+  });
+
 });
 </script>
