@@ -39,6 +39,10 @@ class Pasien extends CI_Controller {
 		echo json_encode($insert);
 	}
 
+	public function deletePasien($username){
+		$this->Pasien_Model->deleteDataPasien($username);
+	}
+
 }
 
 /* End of file Pasien.php */
