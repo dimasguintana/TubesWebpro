@@ -14,6 +14,7 @@
             <th>Jenis Kelamin</th>
             <th>Alamat</th>
             <th>Usia</th>
+            <th></th>
           </tr>
         </thead>
       </table>
@@ -46,6 +47,12 @@
         },
         {
           "data": "usia"
+        },
+        {
+          "data": "username",
+          "render": function(data, type, row) {
+            return `<button class="btn btn-danger" data-toggle="modal" data-target="#updateModal" data-whatever="${data}"><i class="far fa-edit"></i></button>`
+          }
         }
       ]
   });
@@ -78,5 +85,13 @@
       })
       
   });
+
+  $('#updateModal').on('show.bs.modal', function(event) {
+    let username = $(event.relatedTarget).data('whatever');
+    let modal = $(this)
+    modal.find('#dataName').text(username)
+    $('#updateButton')
+  });
+
 });
 </script>
