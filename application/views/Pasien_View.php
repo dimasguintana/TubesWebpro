@@ -63,7 +63,7 @@
   //   }
   // })
 
-
+//Delete
   $('#deleteModal').on('show.bs.modal', function(event) {
         let username = $(event.relatedTarget).data('whatever');
         let del = $(this)
