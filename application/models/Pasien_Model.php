@@ -11,7 +11,7 @@ class Pasien_Model extends CI_Model {
 		return $this->db->insert('pasien', $data);
 	}
 	public function deleteDataPasien($username){
-		$this->db->where('username_pasien', $username);
+		$this->db->where('username', $username);
 		return $this->db->delete('pasien');
 	}
 }
