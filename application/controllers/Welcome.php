@@ -11,6 +11,7 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		session_destroy();
 		$content['main_view'] = 'Login_View';
 		$content['title'] = 'Login';
 		$this->load->view('Halaman', $content);
@@ -38,66 +39,87 @@ class Welcome extends CI_Controller {
 			$password = $this->input->post('password');
 
 			$peran;
-			$query1 = $this->db->get_where('pasien', ['username' => $username])->row_array();
+			$query = $this->db->get_where('pasien', ['username' => $username])->row_array();
 
-			if ($query1) {
+			//Jika username terdeteksi di table pasien
+			if ($query) {
 				$peran = 'pasien';
-			}
+			} else {
+				$query = $this->db->get_where('dokter', ['username' => $username])->row_array();
 
-			$query2 = $this->db->get_where('dokter', ['username' => $username])->row_array();
-			if ($query2) {
-				$peran = 'dokter';
-			}
+				//Jika username terdeteksi di table dokter
+				if ($query) {
+					$peran = 'dokter';
+				} else {
+					$query = $this->db->get_where('admin', ['username' => $username])->row_array();
 
-			$query3 = $this->db->get_where('admin', ['username' => $username])->row_array();
-			if ($query3) {
-				$peran = 'admin';
+					//Jika username terdeteksi di table admin
+					if ($query) {
+						$peran = 'admin';
+					}
+				}
 			}
 
 			//Jika username valid di pasien
 			if ($peran == 'pasien') {
 
-				if ($password == $query1['password']) {
+				if ($password == $query['password']) {
 					$data = [
-						'username' => $query1['username'],
-						'nama' => $query1['nama'],
+						'username' => $query['username'],
+						'nama' => $query['nama'],
 						'peran' => $peran
 					];
+					
 					$this->session->set_userdata($data);
                 	$data['main_view'] = 'Pasien_View';
                 	$data['title'] = 'Pasien';
 					$this->load->view('Halaman', $data);
+
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invalid</div>');
 					redirect('Welcome/login');
 				}
+
 				//Jika username valid di dokter
 			} else if ($peran == 'dokter') {
-				if (password_verify($password, $query2['password'])) {
+				if ($password == $query['password']) {
 					$data = [
-						'username' => $query2['username'],
-						'nama' => $query2['username'],
+						'username' => $query['username'],
+						'nama' => $query['nama'],
 						'peran' => $peran
 					];
+
+					$this->session->set_userdata($data);
+                	$data['main_view'] = 'Register_View';
+                	$data['title'] = 'Pasien';
+					$this->load->view('Halaman', $data);
+
 				} else {
-					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invalid</div>');
-					redirect('Pasien/allPasien');
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invali</div>');
+					redirect('Welcome/login');
 				}
-			// 	//Jika username valid di admin
+
+				//Jika username valid di admin
 			} else if ($peran == 'admin') {
-				if (password_verify($password, $query3['password'])) {
+				if ($password == $query['password']) {
 					$data = [
-						'username' => $query3['username'],
-						'nama' => $query3['username'],
+						'username' => $query['username'],
+						'nama' => $query['nama'],
 						'peran' => $peran
 					];
+					
+					$this->session->set_userdata($data);
+                	$data['main_view'] = 'Pasien_View';
+                	$data['title'] = 'Pasien';
+					$this->load->view('Halaman', $data);
+
 				} else {
 					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invalid</div>');
-					redirect('Pasien/allPasien');
+					redirect('Welcome/login');
 				}
 			} else {
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Username Invalid</div>');
-				redirect('Pasien/allPasien');
+				redirect('Welcome/login');
 
 			}
 		}
