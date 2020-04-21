@@ -62,25 +62,7 @@
   //     console.log(data);
   //   }
   // })
-  $('#formTambah').on('submit', function(event) {
-      event.preventDefault();
-      let form = $(this);
-      $.ajax({
-        url: '<?= site_url('Pasien/tambahPasien') ?>',
-        type: 'post',
-        data: form.serialize(),
-        dataType: 'JSON',
-        success: function(data){
-          if (data.cek == true) {
-            $("#tambahPasien").modal('hide')
-            $('#dataPasien').DataTable().ajax.reload()     
-          }
-          else {
-            console.log("error")
-          }
-        }
-      })      
-  });
+
 
   $('#deleteModal').on('show.bs.modal', function(event) {
         let username = $(event.relatedTarget).data('whatever');

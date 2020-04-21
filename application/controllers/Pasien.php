@@ -23,20 +23,18 @@ class Pasien extends CI_Controller {
 	}
 
 	public function tambahPasien(){
-		foreach ($_POST as $key => $value) {
-        	$d[$key] = $value;
-      	}
 		$data = [
-			"username" => $d['usernameP'],
-			"password" => $d['passwordP'],
-			"nama" => $d['namaP'],
-			"alamat" => $d['alamatP'],
-			"usia" => $d['usiaP'],
-			"jeniskelamin" => $d['jkP'],
+
+			"username" => $this->input->POST('usernameP', true),
+			"password" => $this->input->post('passwordP', true),
+			"nama" => $this->input->post('namaP', true),
+			"alamat" => $this->input->post('alamatP', true),
+			"usia" => $this->input->post('usiaP', true),
+			"jeniskelamin" => $this->input->post('jeniskelamin', true),
+
 		];
 		$this->Pasien_Model->tambahDataPasien($data);
-		$insert["cek"] = true;
-		echo json_encode($insert);
+		redirect('Welcome/login','refresh');
 	}
 
 	public function deletePasien($username){

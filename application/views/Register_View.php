@@ -8,39 +8,39 @@
         <h1 style=" color: #FF4F5A; font-size: 50;
         -webkit-text-stroke-width: 0.5px;
         -webkit-text-stroke-color: black;">Register</h1>
-      <form class='p-5' method="POST" action="<?php echo site_url('Welcome/login') ?>" style= 'background-color: #FF4F5A; border-radius: 25px'>
+      <form class='p-5' method="POST" action="<?=site_url('Pasien/tambahPasien') ?>" style= 'background-color: #FF4F5A; border-radius: 25px'>
         <div class="form-row">
     <div class="form-group col-md-6">
       <label class='text-light'for="inputEmail4">Username</label>
-      <input type="text" class="form-control" id="inputEmail4" placeholder="Username">
+      <input type="text" class="form-control" name="usernameP" placeholder="Username">
     </div>
     <div class="form-group col-md-6">
       <label class='text-light'for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+      <input type="password" class="form-control" name="passwordP" placeholder="Password">
     </div>
   </div>
   <div class="form-group">
     <label class='text-light'for="inputAddress">Nama</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="Nama">
+    <input type="text" class="form-control" name="namaP" placeholder="Nama">
   </div>
   <div class="form-group">
     <label class='text-light'for="inputAddress2">Alamat</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Alamat">
+    <input type="text" class="form-control" name="alamatP" placeholder="Alamat">
   </div>
   <div class="form-row">
   <div class="form-group col-md-6">
     <label class='text-light'for="inputAddress2">Usia</label>
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Usia">
+    <input type="text" class="form-control" name="usiaP" placeholder="Usia">
   </div>
   <div class="form-group col-md-6">
       <label class='text-light'for="inputState">Jenis Kelamin</label>
-      <select id="inputState" class="form-control">
-        <option>Laki-Laki</option>
-        <option>Perempuan</option>
+      <select name="jeniskelamin" class="form-control">
+        <option value="Laki-Laki">Laki-Laki</option>
+        <option value="Perempuan">Perempuan</option>
       </select>
     </div>
   </div>
-    <button type="submit" class="btn btn-light mr-auto">Register</button>
+    <button type="submit" class="btn btn-light mr-auto" id="register">Register</button>
       </form>
       </div>
     </div>
