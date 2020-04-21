@@ -31,12 +31,16 @@
         "type": "GET",
         "dataSrc": ""
       },
+
       "columns": [
         {
           "data": "username_pasien"
         },
         {
           "data": "nama"
+        },
+        {
+          "data": "jeniskelamin"
         },
         {
           "data": "alamat"
