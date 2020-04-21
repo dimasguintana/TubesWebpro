@@ -42,7 +42,6 @@
   </div>
     <button type="submit" class="btn btn-light mr-auto">Register</button>
       </form>
-      <?= $this->session->userdata('username')?>
       </div>
     </div>
   </div>
