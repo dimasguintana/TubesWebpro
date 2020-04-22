@@ -20,9 +20,9 @@ class Dokter_Model extends CI_Model {
 		return $this->db->update('dokter', $data);
 	}
 
-	public function deleteDokter($idDokter)
+	public function deleteDataDokter($username)
 	{
-		$this->db->where('idDokter', $idDokter);
+		$this->db->where('username', $username);
 		return $this->db->delete('dokter');
 	}
 

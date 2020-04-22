@@ -96,12 +96,12 @@ class Welcome extends CI_Controller {
 					];
 
 					$this->session->set_userdata($data);
-                	$data['main_view'] = 'Register_View';
-                	$data['title'] = 'Pasien';
+                	$data['main_view'] = 'Dokter_View';
+                	$data['title'] = 'Dokter';
 					$this->load->view('Halaman', $data);
 
 				} else {
-					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invali</div>');
+					$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Invalid</div>');
 					redirect('Welcome/login');
 				}
 
