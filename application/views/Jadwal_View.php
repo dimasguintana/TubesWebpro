@@ -6,9 +6,8 @@
       <table class="table table-dark table-hover table-bordered" id="dataJadwal" style="width: 100%">
         <thead>
           <tr>
-            <th>Username Pasien </th>
-            <th>Username Dokter</th>
-            <th>Username Admin</th>
+            <th>Nama Pasien</th>
+            <th>Nama Dokter</th>
             <th>Tanggal</th>
             <th>Jam</th>
             <th>Ruangan</th>
@@ -30,16 +29,12 @@
         "type": "GET",
         "dataSrc": ""
       },
-
       "columns": [
         {
-          "data": "username Pasien"
+          "data": "namapasien"
         },
         {
-          "data": "Username Dokter"
-        },
-        {
-          "data": "Username Admin"
+          "data": "nama"
         },
         {
           "data": "Tanggal"
@@ -52,5 +47,16 @@
         }
       ]
   });
+
 });
+//   $.ajax({
+//     url:"<?= site_url('Jadwal/allJadwal')?>", 
+//     type: "GET",
+//     async : true,
+//     dataType : "JSON",
+//     success : function(data){
+//       console.log(data);
+//     }
+//   })
 </script>
+
