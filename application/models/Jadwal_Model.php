@@ -17,6 +17,8 @@ class Jadwal_Model extends CI_Model {
 		return $this->db->delete('jadwal');
 	}
 
+	
+
 }
 
 /* End of file Jadwal_Model.php */
