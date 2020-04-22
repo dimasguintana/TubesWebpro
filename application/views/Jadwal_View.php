@@ -1,5 +1,5 @@
 <?php $this->load->view('template/atas2'); ?>
-<!-- GET SEMUA DATA JADWAL -->
+<!-- GET SEMUA DATA JADWAL CUY -->
   <div class="py-5">
     <h1 class="text-center"><?= $title ?></h1>
     <div class="table-responsive container">
