@@ -39,9 +39,33 @@
         <option value="Perempuan">Perempuan</option>
       </select>
     </div>
-  </div>
-    <button type="submit" class="btn btn-light mr-auto" id="register">Register</button>
+  </div >
+  <div class="d-flex align-items-center">
+    <button type="submit" class="btn btn-light mr-auto" id="register" data-toggle="modal" data-target="#registrasiModal">Register</button>
+    <a class='text-light' href="<?= site_url('Welcome/login') ?>">Login</a>
+    </div>
       </form>
       </div>
     </div>
   </div>
+
+<!-- Modal -->
+<div class="modal fade" id="registrasiModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">berhasil uhuy</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" action="<?= site_url('Welcome/login') ?>">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

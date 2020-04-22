@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.10/dist/sweetalert2.min.css" >
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.26.10/dist/sweetalert2.all.min.js" ></script>
     <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
@@ -18,44 +20,47 @@
 <body>
   <?php $this->load->view($main_view); ?>
 
-  <!-- Form Regist Pasien -->
-<div class="modal fade" id="tambahPasien" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+
+ 
+  <!-- Modal Update Pasien -->
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <center><h2>TAMBAH DATA PASIEN</h2></center>
+      <center><h2>UPDATE DATA PASIEN</h2></center>
       </div>
       <div class="modal-body">
-      <!-- isi form ini -->
+
       <form method="POST" id="formTambah">
+
+      <!-- isi form ini -->
+      <form method="POST" id="formUpdate">
+
         <div class="form-group">
           <label for="formGroupExampleInput">Username</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="UsernamePasien" name="usernameP" required >
-        </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput">Password</label>
-          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="PasswordPasien" name="passwordP"required>
+          <input type="text" class="form-control" id="usernInput" placeholder="Username Pasien" name="usernameP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Nama</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="NamaPasien" name="namaP" required>
+          <input type="text" class="form-control" id="namaInput" placeholder="Nama Pasien" name="namaP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Alamat</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="AlamatPasien" name="alamatP" required>
+          <input type="text" class="form-control" id="alamatInput" placeholder="Alamat Pasien" name="alamatP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Usia</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="UsiaPasien" name="usiaP" required>
+          <input type="text" class="form-control" id="usiaInput" placeholder="Usia Pasien" name="usiaP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Jenis Kelamin</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="JKPasien" name="jkP" required>
+          <input type="text" class="form-control" id="jkInput" placeholder="Jenis Kelamin Pasien" name="jkP" required>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-        <button type="submit" class="btn btn-primary" id="tambahSubmit">Submit</button>
+        <button type="submit" class="btn btn-primary" id="updateSubmit">Submit</button>
       </div>
     </form>
     </div>
@@ -64,7 +69,7 @@
 
 
 
-<!-- Modal Delete FIX-->
+<!-- Modal Delete Pasien-->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -84,5 +89,44 @@
     </div>
   </div>
 </div>
+
+  <!-- Modal Update Dokter -->
+<div class="modal fade" id="updateModald" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <center><h2>UPDATE DATA PASIEN</h2></center>
+      </div>
+      <div class="modal-body">
+
+        <!-- isi form ini -->
+        <form method="POST" id="formUpdated">
+
+          <div class="form-group">
+            <label for="formGroupExampleInput">Username</label>
+            <input type="text" class="form-control" id="userInput" placeholder="Username Dokter" name="usernameD" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Nama</label>
+            <input type="text" class="form-control" id="nmInput" placeholder="Nama Dokter" name="namaD" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Rating</label>
+            <input type="text" class="form-control" id="ratingInput" placeholder="Rating Dokter" name="ratingD" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Usia</label>
+            <input type="text" class="form-control" id="ageInput" placeholder="Usia Dokter" name="usiaD" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary" id="ubahSubmit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>

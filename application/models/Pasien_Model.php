@@ -10,6 +10,19 @@ class Pasien_Model extends CI_Model {
 	public function tambahDataPasien($data){
 		return $this->db->insert('pasien', $data);
 	}
+
+	public function getPasienByUsername($username)
+	{
+		$this->db->where('username', $username);
+		return $this->db->get('pasien')->row();
+	}
+
+	public function updatePasien($username, $data)
+	{
+		$this->db->where('username', $username);
+		return $this->db->update('pasien', $data);
+	}
+
 	public function deleteDataPasien($username){
 		$this->db->where('username', $username);
 		return $this->db->delete('pasien');

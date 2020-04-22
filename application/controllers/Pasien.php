@@ -41,6 +41,36 @@ class Pasien extends CI_Controller {
 		$this->Pasien_Model->deleteDataPasien($username);
 	}
 
+	public function getPasienByUsername($username)
+	{
+		$data = $this->Pasien_Model->getPasienByUsername($username);
+
+		echo json_encode($data);
+	}
+
+	public function updatePasien($username)
+	{
+		foreach ($_POST as $key => $value) {
+			$post[$key] = $value;
+		}
+
+		$data = [
+
+			"username" => $post['usernameP'],
+			"nama" => $post['namaP'],
+			"alamat" => $post['alamatP'],
+			"usia" => $post['usiaP'],
+			"jeniskelamin" => $post['jkP']
+
+		];
+
+		$kesuksesan['sukses'] = true;
+		$this->Pasien_Model->updatePasien($username, $data);
+
+		echo json_encode($kesuksesan);
+
+	}
+
 }
 
 /* End of file Pasien.php */

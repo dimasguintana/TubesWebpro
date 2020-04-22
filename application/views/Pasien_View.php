@@ -1,9 +1,11 @@
+
+<?php $this->load->view('template/atas2'); ?>
 <!-- GET SEMUA DATA PASIEN -->
   <div class="py-5">
     <h1 class="text-center"><?= $title ?></h1>
     <div class="table-responsive container">
     <div class="d-flex justify-content-end">
-      <button class="btn btn-primary" data-target="#tambahPasien" data-toggle="modal">Tambah Pasien</button>
+
     </div>                                                        <!-- id table -->
       <table class="table table-dark table-hover table-bordered" id="dataPasien" style="width: 100%">
         <thead>
@@ -48,7 +50,7 @@
         {
           "data": "username",
           "render": function(data, type, row){
-            return `<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-whatever="${data}"><i class="fas fa-user-times"></i></button>`
+            return `<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-whatever="${data}"><i class="fas fa-user-times"></i></button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" data-whatever="${data}"><i class="fas fa-user-edit"></i></button>` 
           }
         }
       ]
@@ -79,5 +81,45 @@
           $('#dataPasien').DataTable().ajax.reload()
         })
     });
+
+  $('#updateModal').on('show.bs.modal', function(event) {
+    let username = $(event.relatedTarget).data('whatever');
+    $.ajax({
+      url: `<?= site_url('Pasien/getPasienByUsername/') ?>${username}`,
+      type: "GET",
+      dataType: "JSON",
+      success: function(data) {
+        if (data) {
+          $('#usernInput').val(data.username);
+          $('#namaInput').val(data.nama);
+          $('#alamatInput').val(data.alamat);
+          $('#usiaInput').val(data.usia);
+          $('#jkInput').val(data.jeniskelamin);
+        }
+      }
+    })
+    $('#formUpdate').on('submit', function(event) {
+      event.preventDefault();
+      let form = $(this)
+      $.ajax({
+        url: `<?= site_url('Pasien/updatePasien/') ?>${username}`,
+        type: "POST",
+        data: form.serialize(),
+        dataType: "JSON",
+        success: function(kesuksesan) {
+          if (kesuksesan.sukses) {
+            $("#updateModal").modal('hide')
+            $('#dataPasien').DataTable().ajax.reload()
+            $('#usernInput').val('');
+            $('#namaInput').val('');
+            $('#alamatInput').val('');
+            $('#usiaInput').val('');
+            $('#jkInput').val('');
+          }
+        }
+      })
+    })
+  });
+
 });
 </script>
