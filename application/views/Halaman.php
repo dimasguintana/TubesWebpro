@@ -39,23 +39,23 @@
 
         <div class="form-group">
           <label for="formGroupExampleInput">Username</label>
-          <input type="text" class="form-control" id="usernInput" placeholder="UsernamePasien" name="usernameP" required>
+          <input type="text" class="form-control" id="usernInput" placeholder="Username Pasien" name="usernameP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Nama</label>
-          <input type="text" class="form-control" id="namaInput" placeholder="NamaPasien" name="namaP" required>
+          <input type="text" class="form-control" id="namaInput" placeholder="Nama Pasien" name="namaP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Alamat</label>
-          <input type="text" class="form-control" id="alamatInput" placeholder="AlamatPasien" name="alamatP" required>
+          <input type="text" class="form-control" id="alamatInput" placeholder="Alamat Pasien" name="alamatP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Usia</label>
-          <input type="text" class="form-control" id="usiaInput" placeholder="UsiaPasien" name="usiaP" required>
+          <input type="text" class="form-control" id="usiaInput" placeholder="Usia Pasien" name="usiaP" required>
         </div>
         <div class="form-group">
           <label for="formGroupExampleInput2">Jenis Kelamin</label>
-          <input type="text" class="form-control" id="jkInput" placeholder="JKPasien" name="jkP" required>
+          <input type="text" class="form-control" id="jkInput" placeholder="Jenis Kelamin Pasien" name="jkP" required>
         </div>
       </div>
       <div class="modal-footer">
@@ -65,11 +65,11 @@
     </form>
     </div>
   </div>
-</div> -->
+</div>
 
 
 
-<!-- Modal Delete FIX-->
+<!-- Modal Delete Pasien-->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -89,5 +89,44 @@
     </div>
   </div>
 </div>
+
+  <!-- Modal Update Dokter -->
+<div class="modal fade" id="updateModald" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <center><h2>UPDATE DATA PASIEN</h2></center>
+      </div>
+      <div class="modal-body">
+
+        <!-- isi form ini -->
+        <form method="POST" id="formUpdated">
+
+          <div class="form-group">
+            <label for="formGroupExampleInput">Username</label>
+            <input type="text" class="form-control" id="userInput" placeholder="Username Dokter" name="usernameD" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Nama</label>
+            <input type="text" class="form-control" id="nmInput" placeholder="Nama Dokter" name="namaD" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Rating</label>
+            <input type="text" class="form-control" id="ratingInput" placeholder="Rating Dokter" name="ratingD" required>
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput2">Usia</label>
+            <input type="text" class="form-control" id="ageInput" placeholder="Usia Dokter" name="usiaD" required>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary" id="ubahSubmit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
