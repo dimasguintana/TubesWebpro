@@ -32,8 +32,6 @@
       </div>
       <div class="modal-body">
 
-      <form method="POST" id="formTambah">
-
       <!-- isi form ini -->
       <form method="POST" id="formUpdate">
 
@@ -69,7 +67,7 @@
 
 
 
-<!-- Modal Delete Pasien-->
+<!-- Modal Delete -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
