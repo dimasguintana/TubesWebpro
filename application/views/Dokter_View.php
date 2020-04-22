@@ -2,6 +2,11 @@
 <!-- GET SEMUA DATA DOKTER -->
   <div class="py-5">
     <h1 class="text-center"><?= $title ?></h1>
+    <div class="text-center">
+      <button class="btn btn-success" data-toggle="modal" data-target="#tambahModal">
+        <i class="fas fa-user-plus"></i> Tambah Data Dokter
+      </button>
+    </div>
     <div class="table-responsive container">
     <div class="d-flex justify-content-end">
     </div>
@@ -78,6 +83,10 @@
           $('#dataDokter').DataTable().ajax.reload()
         })
     });
+
+  $('#tambahModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
 
   $('#updateModald').on('show.bs.modal', function(event) {
     let username = $(event.relatedTarget).data('whatever');

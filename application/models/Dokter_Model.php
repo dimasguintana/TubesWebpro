@@ -8,6 +8,10 @@ class Dokter_Model extends CI_Model {
 		return $this->db->get('dokter')->result_array();
 	}
 
+	public function tambahDataDokter($data){
+		return $this->db->insert('dokter', $data);
+	}
+
 	public function getDokterByUsername($username)
 	{
 		$this->db->where('username', $username);
