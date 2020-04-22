@@ -52,4 +52,9 @@ class Dokter extends CI_Controller {
 
 	}
 
+	public function deleteDokter($username)
+	{
+		$this->Dokter_Model->deleteDataDokter($username);
+	}
+
 }

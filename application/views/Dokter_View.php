@@ -1,3 +1,4 @@
+<?php $this->load->view('template/atas2'); ?>
 <!-- GET SEMUA DATA DOKTER -->
   <div class="py-5">
     <h1 class="text-center"><?= $title ?></h1>
@@ -47,7 +48,7 @@
         {
           "data": "username",
           "render": function(data, type, row){
-            return `<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModald" data-whatever="${data}"><i class="fas fa-user-times"></i></button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModald" data-whatever="${data}"><i class="fas fa-user-edit"></i></button>` 
+            return `<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-whatever="${data}"><i class="fas fa-user-times"></i></button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModald" data-whatever="${data}"><i class="fas fa-user-edit"></i></button>` 
           }
         }
       ]
@@ -61,6 +62,22 @@
   //     console.log(data);
   //   }
   // })
+
+  $('#deleteModal').on('show.bs.modal', function(event) {
+        let username = $(event.relatedTarget).data('whatever');
+        let del = $(this)
+        del.find('#dataUser').text(username)
+        $('#deleteButton').on('click',function() {
+          $.ajax({
+            url: `<?= site_url('Dokter/deleteDokter/') ?>${username}`,
+            type: "GET",
+            async: true,
+            dataType: "JSON"
+          })
+          $("#deleteModal").modal('hide')
+          $('#dataDokter').DataTable().ajax.reload()
+        })
+    });
 
   $('#updateModald').on('show.bs.modal', function(event) {
     let username = $(event.relatedTarget).data('whatever');
