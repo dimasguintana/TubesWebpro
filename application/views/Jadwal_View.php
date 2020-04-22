@@ -1,4 +1,6 @@
-<div class="py-5">
+<?php $this->load->view('template/atas2'); ?>
+<!-- GET SEMUA DATA JADWAL -->
+  <div class="py-5">
     <h1 class="text-center"><?= $title ?></h1>
     <div class="table-responsive container">
     <div class="d-flex justify-content-end">
