@@ -23,6 +23,33 @@ class Dokter extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	// public function tambahDokter(){
+	// 	$data = [
+	// 		"username" => $this->input->post('usernameD', true),
+	// 		"password" => $this->input->post('passwordD', true),
+	// 		"nama" => $this->input->post('namaD', true),
+	// 		"rating" => $this->input->post('alamatD', true),
+	// 		"usia" => $this->input->post('usiaD', true),
+	// 	];
+	// 	$this->Dokter_Model->tambahDataDokter($data);
+	// }
+	public function tambahDokter(){
+        foreach ($_POST as $key => $value) {
+            $d[$key] = $value;
+          }
+        $data = [
+            "username" => $d['usernameD'],
+            "password" => $d['passwordD'],
+            "nama" => $d['namaD'],
+            "rating" => $d['ratingD'],
+            "usia" => $d['usiaD'],
+		];
+		
+        $this->Dokter_Model->tambahDataDokter($data);
+        $insert["cek"] = true;
+        echo json_encode($insert);
+    }
+
 	public function getDokterByUsername($username)
 	{
 		$data = $this->Dokter_Model->getDokterByUsername($username);

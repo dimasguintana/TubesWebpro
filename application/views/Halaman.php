@@ -96,7 +96,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <center><h2>UPDATE DATA PASIEN</h2></center>
+      <center><h2>UPDATE DATA DOKTER</h2></center>
       </div>
       <div class="modal-body">
 
@@ -127,6 +127,47 @@
       </div>
     </div>
   </div>
+</div>
+
+<!-- Modal Tambah Dokter -->
+<div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title">TAMBAH DATA DOKTER</h5>
+    </div>
+    <div class="modal-body">
+
+      <form method="POST" id="formTambahD">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Username</label>
+          <input type="text" class="form-control" id="userInput" placeholder="Username Dokter" name="usernameD" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Password</label>
+          <input type="password" class="form-control" id="passwordInput" placeholder="Nama Dokter" name="passwordD" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Nama</label>
+          <input type="text" class="form-control" id="namaInput" placeholder="Nama Dokter" name="namaD" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Rating</label>
+          <input type="text" class="form-control" id="ratingInput" placeholder="Rating Dokter" name="ratingD" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Usia</label>
+          <input type="text" class="form-control" id="ageInput" placeholder="Usia Dokter" name="usiaD" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary" id="tambahSubmit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 
 </body>
 </html>
