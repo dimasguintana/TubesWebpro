@@ -84,9 +84,29 @@
         })
     });
 
-  $('#tambahModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
+  // $('#tambahModal').on('shown.bs.modal', function () {
+  //   $('#usernameD').trigger('focus')
+  // })
+  $('#formTambahD').on('submit', function(event) {
+      event.preventDefault();
+      let form = $(this);
+      $.ajax({
+        url: '<?= site_url('Dokter/tambahDokter') ?>',
+        type: 'post',
+        data: form.serialize(),
+        dataType: 'JSON',
+        success: function(data){
+          if (data.cek == true) {
+            console.log("berhasil")
+            $("#tambahModal").modal('hide')
+            $('#dataDokter').DataTable().ajax.reload()
+          }
+          else {
+            console.log("error")
+          }
+        }
+      })
+  });
 
   $('#updateModald').on('show.bs.modal', function(event) {
     let username = $(event.relatedTarget).data('whatever');

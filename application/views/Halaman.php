@@ -134,17 +134,36 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <h5 class="modal-title">TAMBAH DATA DOKTER</h5>
     </div>
     <div class="modal-body">
-      ...
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      <button type="button" class="btn btn-primary">Save changes</button>
+
+      <form method="POST" id="formTambahD">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Username</label>
+          <input type="text" class="form-control" id="userInput" placeholder="Username Dokter" name="usernameD" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Password</label>
+          <input type="password" class="form-control" id="passwordInput" placeholder="Nama Dokter" name="passwordD" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Nama</label>
+          <input type="text" class="form-control" id="namaInput" placeholder="Nama Dokter" name="namaD" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Rating</label>
+          <input type="text" class="form-control" id="ratingInput" placeholder="Rating Dokter" name="ratingD" required>
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Usia</label>
+          <input type="text" class="form-control" id="ageInput" placeholder="Usia Dokter" name="usiaD" required>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary" id="tambahSubmit">Submit</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
