@@ -32,8 +32,6 @@
       </div>
       <div class="modal-body">
 
-      <form method="POST" id="formTambah">
-
       <!-- isi form ini -->
       <form method="POST" id="formUpdate">
 
