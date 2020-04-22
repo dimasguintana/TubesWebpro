@@ -17,6 +17,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('Halaman', $content);
 	}
 
+	public function logout()
+	{
+		session_destroy();
+		redirect(base_url());
+	}
+
 	public function register()
 	{
 		$content['main_view'] = 'Register_View';
