@@ -5,8 +5,8 @@
       <table class="table table-dark table-hover table-bordered" id="dataJadwal" style="width: 100%">
         <thead>
           <tr>
-            <th>Username Pasien</th>
-            <th>Username Dokter</th>
+            <th>Nama Pasien</th>
+            <th>Nama Dokter</th>
             <th>Tanggal</th>
             <th>Jam</th>
             <th>Ruangan</th>
@@ -28,11 +28,12 @@
         "type": "GET",
         "dataSrc": ""
       },
-      "columns": [{
-          "data": "username_pasien"
+      "columns": [
+        {
+          "data": "namapasien"
         },
         {
-          "data": "username_dokter"
+          "data": "nama"
         },
         {
           "data": "tanggal"
@@ -54,5 +55,5 @@
 //       console.log(data);
 //     }
 //   })
-  });
+});
 </script>
