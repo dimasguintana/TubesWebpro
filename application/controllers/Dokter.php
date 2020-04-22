@@ -23,4 +23,33 @@ class Dokter extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function getDokterByUsername($username)
+	{
+		$data = $this->Dokter_Model->getDokterByUsername($username);
+
+		echo json_encode($data);
+	}
+
+	public function updateDokter($username)
+	{
+		foreach ($_POST as $key => $value) {
+			$post[$key] = $value;
+		}
+
+		$data = [
+
+			"username" => $post['usernameD'],
+			"nama" => $post['namaD'],
+			"rating" => $post['ratingD'],
+			"usia" => $post['usiaD'],
+
+		];
+
+		$valid['sukses'] = true;
+		$this->Dokter_Model->updateDokter($username, $data);
+
+		echo json_encode($valid);
+
+	}
+
 }
