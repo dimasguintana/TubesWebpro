@@ -41,10 +41,10 @@ class Jadwal extends CI_Controller {
             "ruangan" => "test",
 		];
 		
-        // $this->Jadwal_Model->tambahDataJadwal($data);
+        $this->Jadwal_Model->tambahDataJadwal($data);
         $insert["cek"] = true;
-        // echo json_encode($insert);
-        echo json_encode($data);
+        echo json_encode($insert);
+        // echo json_encode($data);
     }
 
     

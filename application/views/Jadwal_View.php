@@ -84,15 +84,15 @@
         dataType: 'JSON',
         success: function(data){
           console.log(data)
-          // if (data.cek == true) {
-          //   console.log("berhasil")
-          //   $("#tambahJadwalModal").modal('hide')
-          //   $('#dataJadwal').DataTable().ajax.reload()
-          // }
-          // else {
-          //   console.log("error")
-          // }
-        },
+          if (data.cek == true) {
+            console.log("berhasil")
+            $("#tambahJadwalModal").modal('hide')
+            $('#dataJadwal').DataTable().ajax.reload()
+          }
+          else {
+            console.log("error")
+          }
+        }
         // error: function(XMLHttpRequest, textStatus, errorThrown) { 
         //   console.log(data)
         //   alert("Status: " + textStatus); alert("Error: " + errorThrown); 
