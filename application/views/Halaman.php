@@ -32,8 +32,6 @@
       </div>
       <div class="modal-body">
 
-      <form method="POST" id="formTambah">
-
       <!-- isi form ini -->
       <form method="POST" id="formUpdate">
 
@@ -69,7 +67,7 @@
 
 
 
-<!-- Modal Delete Pasien-->
+<!-- Modal Delete -->
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -167,45 +165,69 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- Modal Tambah Jadwal -->
 <div class="modal fade" id="tambahJadwalModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 <div class="modal-dialog" role="document">
   <div class="modal-content">
     <div class="modal-header">
-      <h5 class="modal-title">RESERVASI DOKTER</h5>
+      <h5 class="modal-title">TAMBAH DATA JADWAL</h5>
     </div>
     <div class="modal-body">
-    <h1>test</h1>
 
-      <!-- <form method="POST" id="formTambahD">
+      <form method="POST" id="formTambahJ">
         <div class="form-group">
-          <label for="formGroupExampleInput">Username</label>
-          <input type="text" class="form-control" id="userInput" placeholder="Username Dokter" name="usernameD" required>
+          <label for="formGroupExampleInput">Nama Admin</label>
+          <input type="text" class="form-control" id="userInput" name="adminJ" value="admin" readonly>
         </div>
         <div class="form-group">
-          <label for="formGroupExampleInput2">Password</label>
-          <input type="password" class="form-control" id="passwordInput" placeholder="Nama Dokter" name="passwordD" required>
+          <label for="formGroupExampleInput2">Nama Dokter</label>
+          <select class="form-control" id="dokterInput" name="dokterJ" required>
+              <?php
+              $query = $this->db->get('dokter');
+              $result = $query->result_array();
+              foreach ($result as $key) {
+                echo "<option value='" . $key['username'] . "'>" . $key['nama'] . "</option>";
+              }
+              ?>
+            </select>
         </div>
         <div class="form-group">
-          <label for="formGroupExampleInput2">Nama</label>
-          <input type="text" class="form-control" id="namaInput" placeholder="Nama Dokter" name="namaD" required>
+          <label for="formGroupExampleInput2">Tanggal</label>
+          <input type="date" class="form-control" id="tanggalInput" name="tanggalJ" required>
         </div>
         <div class="form-group">
-          <label for="formGroupExampleInput2">Rating</label>
-          <input type="text" class="form-control" id="ratingInput" placeholder="Rating Dokter" name="ratingD" required>
-        </div>
-        <div class="form-group">
-          <label for="formGroupExampleInput2">Usia</label>
-          <input type="text" class="form-control" id="ageInput" placeholder="Usia Dokter" name="usiaD" required>
+          <label for="formGroupExampleInput2">Jam</label>
+          <select class="form-control" id="jamInput" name="jamJ" required>
+              <?php
+              $jam = 8;
+              while($jam <= 16) {
+                if ($jam < 10) {
+                  $jamStr = "0" . strVal($jam) . ":00";
+                  if ($jam+1 == 10) {
+                    $jamStrNext = strVal($jam+1) . ":00";
+                  } else {
+                    $jamStrNext = "0" . strVal($jam+1) . ":00";
+                  }
+                } else {
+                  $jamStr = strVal($jam) . ":00";
+                  $jamStrNext = strVal($jam+1) . ":00";
+                }
+                echo "<option value='" . $jamStr . "'>" . $jamStr . " - " . $jamStrNext . "</option>";
+                $jam++;
+              } 
+              ?>
+            </select>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-          <button type="submit" class="btn btn-primary" id="tambahSubmit">Submit</button>
+          <button type="submit" class="btn btn-primary" id="tambahJadwalSubmit">Submit</button>
         </div>
-      </form> -->
+      </form>
     </div>
   </div>
+</div>
 </div>
 
 </body>
