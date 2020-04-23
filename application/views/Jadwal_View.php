@@ -1,6 +1,12 @@
+<?php $this->load->view('template/atas2'); ?>
 <!-- GET SEMUA DATA JADWAL -->
   <div class="py-5">
     <h1 class="text-center"><?= $title ?></h1>
+    <div class="text-center">
+      <button class="btn btn-success" data-toggle="modal" data-target="#tambahDokter">
+        <i class="fas fa-user-plus"></i> Tambah Jadwal
+      </button>
+    </div>
     <div class="table-responsive container">                <!-- id table -->
       <table class="table table-dark table-hover table-bordered" id="dataJadwal" style="width: 100%">
         <thead>
