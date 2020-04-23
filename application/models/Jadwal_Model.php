@@ -11,17 +11,31 @@ class Jadwal_Model extends CI_Model {
 		return $query->result();
 	}
 
+	public function tambahDataJadwal($data){
+		return $this->db->insert('jadwal', $data);
+	}
+
 	public function deleteJadwal($id_jadwal)
 	{
 		$this->db->where('id_jadwal', $id_jadwal);
 		return $this->db->delete('jadwal');
 	}
 
+
+	public function getNamaDokter($username_dokter) {
+		$this->db->select('nama');
+		$this->db->from('dokter');
+		$this->db->where('username', $username_dokter);
+		return $this->db->get();
+	}
+
+	
 	public function updateJadwal($id_jadwal, $data)
 	{
 		$this->db->where('id_jadwal', $username);
 		return $this->db->update('jadwal', $data);
 	}
+
 
 	
 }

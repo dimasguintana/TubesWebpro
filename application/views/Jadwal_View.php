@@ -1,8 +1,14 @@
 <?php $this->load->view('template/atas2'); ?>
 <?php $this->load->view('template/carousel');?>
 <!-- GET SEMUA DATA JADWAL CUY -->
-  <div class="py-2">
-    <h1 class="text-center" style="color: #1A2E35"><?= $title ?></h1>
+  <div class="py-5">
+    <h1 class="text-center"><?= $title ?></h1>
+    <div class="text-center">
+    <button class="btn btn-success" data-toggle="modal" data-target="#tambahJadwalModal">
+      <i class="fas fa-user-plus"></i> Tambah Jadwal
+    </button>
+    <div>
+    </div>
     <div class="table-responsive container">
     <div class="d-flex justify-content-end">
     </div>                                                        <!-- id table -->
@@ -68,6 +74,32 @@
 //       console.log(data);
 //     }
 //   })
+
+  $('#formTambahJ').on('submit', function(event) {
+      event.preventDefault();
+      let form = $(this);
+      $.ajax({
+        url: '<?= site_url('Jadwal/tambahJadwal') ?>',
+        type: 'post',
+        data: form.serialize(),
+        dataType: 'JSON',
+        success: function(data){
+          console.log(data)
+          if (data.cek == true) {
+            console.log("berhasil")
+            $("#tambahJadwalModal").modal('hide')
+            $('#dataJadwal').DataTable().ajax.reload()
+          }
+          else {
+            console.log("error")
+          }
+        }
+        // error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        //   console.log(data)
+        //   alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        // } 
+      })
+  });
 
 //Delete
   $('#deleteModal').on('show.bs.modal', function(event) {
