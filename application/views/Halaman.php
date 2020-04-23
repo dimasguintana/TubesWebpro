@@ -214,7 +214,7 @@
                   $jamStr = strVal($jam) . ":00";
                   $jamStrNext = strVal($jam+1) . ":00";
                 }
-                echo "<option value='" . $jamStr . "'>" . $jamStr . " - " . $jamStrNext . "</option>";
+                echo "<option value='" . $jamStr . " - " . $jamStrNext . "'>" . $jamStr . " - " . $jamStrNext . "</option>";
                 $jam++;
               } 
               ?>
