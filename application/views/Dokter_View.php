@@ -1,7 +1,9 @@
 <?php $this->load->view('template/atas2'); ?>
+<?php $this->load->view('template/carousel');?>
+
 <!-- GET SEMUA DATA DOKTER -->
-  <div class="py-5">
-    <h1 class="text-center"><?= $title ?></h1>
+  <div class="py-2" >
+    <h1 class="text-center" style="color: #1A2E35"><?= $title ?></h1>
     <div class="text-center">
       <button class="btn btn-success" data-toggle="modal" data-target="#tambahModal">
         <i class="fas fa-user-plus"></i> Tambah Data Dokter

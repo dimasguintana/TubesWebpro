@@ -1,7 +1,8 @@
 <?php $this->load->view('template/atas2'); ?>
+<?php $this->load->view('template/carousel');?>
 <!-- GET SEMUA DATA JADWAL CUY -->
-  <div class="py-5">
-    <h1 class="text-center"><?= $title ?></h1>
+  <div class="py-2">
+    <h1 class="text-center" style="color: #1A2E35"><?= $title ?></h1>
     <div class="table-responsive container">
     <div class="d-flex justify-content-end">
     </div>                                                        <!-- id table -->
