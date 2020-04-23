@@ -83,7 +83,7 @@ class Welcome extends CI_Controller {
 					];
 					
 					$this->session->set_userdata($data);
-                	$data['main_view'] = 'Pasien_View';
+                	$data['main_view'] = 'Halaman_Pasien';
                 	$data['title'] = 'Pasien';
 					$this->load->view('Halaman', $data);
 
@@ -102,7 +102,7 @@ class Welcome extends CI_Controller {
 					];
 
 					$this->session->set_userdata($data);
-                	$data['main_view'] = 'Dokter_View';
+                	$data['main_view'] = 'Halaman_Dokter';
                 	$data['title'] = 'Dokter';
 					$this->load->view('Halaman', $data);
 
@@ -116,7 +116,7 @@ class Welcome extends CI_Controller {
 				if ($password == $query['password']) {
 					$data = [
 						'username' => $query['username'],
-						'nama' => $query['nama'],
+						// 'nama' => $query['nama'],
 						'peran' => $peran
 					];
 					
