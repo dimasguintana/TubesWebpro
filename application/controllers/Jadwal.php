@@ -28,6 +28,7 @@ class Jadwal extends CI_Controller {
         $this->Jadwal_Model->deleteJadwal($id_jadwal);
     }
 
+
     public function tambahJadwal(){
         foreach ($_POST as $key => $value) {
             $d[$key] = $value;
@@ -46,7 +47,5 @@ class Jadwal extends CI_Controller {
         echo json_encode($insert);
         // echo json_encode($data);
     }
-
-    
 
 }

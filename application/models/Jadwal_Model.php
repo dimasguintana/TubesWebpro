@@ -21,6 +21,7 @@ class Jadwal_Model extends CI_Model {
 		return $this->db->delete('jadwal');
 	}
 
+
 	public function getNamaDokter($username_dokter) {
 		$this->db->select('nama');
 		$this->db->from('dokter');
@@ -29,7 +30,14 @@ class Jadwal_Model extends CI_Model {
 	}
 
 	
+	public function updateJadwal($id_jadwal, $data)
+	{
+		$this->db->where('id_jadwal', $username);
+		return $this->db->update('jadwal', $data);
+	}
 
+
+	
 }
 
 /* End of file Jadwal_Model.php */

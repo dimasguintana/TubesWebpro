@@ -1,4 +1,5 @@
 <?php $this->load->view('template/atas2'); ?>
+<?php $this->load->view('template/carousel');?>
 <!-- GET SEMUA DATA JADWAL CUY -->
   <div class="py-5">
     <h1 class="text-center"><?= $title ?></h1>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.2
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2020 at 12:32 PM
+-- Generation Time: Apr 23, 2020 at 12:24 PM
 -- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- PHP Version: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,6 +33,13 @@ CREATE TABLE `admin` (
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`username`, `password`) VALUES
+('admin', 'admin');
+
 -- --------------------------------------------------------
 
 --
@@ -52,7 +59,9 @@ CREATE TABLE `dokter` (
 --
 
 INSERT INTO `dokter` (`username`, `password`, `nama`, `rating`, `usia`) VALUES
-('11', '11', 'samid', 10, 12);
+('dokter1', '12345', 'Dr. Johnny Sins', 10, 30),
+('dokter2', 'dokter', 'Dr. John Cena We', 10, 40),
+('dokter3', '321', 'Dr. Qiceha Abduy', 7, 43);
 
 -- --------------------------------------------------------
 
@@ -62,13 +71,20 @@ INSERT INTO `dokter` (`username`, `password`, `nama`, `rating`, `usia`) VALUES
 
 CREATE TABLE `jadwal` (
   `id_jadwal` int(10) NOT NULL,
-  `username_pasien` varchar(20) NOT NULL,
+  `username_pasien` varchar(20) DEFAULT NULL,
   `username_dokter` varchar(20) NOT NULL,
   `username_admin` varchar(30) NOT NULL,
   `tanggal` date NOT NULL,
   `jam` varchar(30) NOT NULL,
   `ruangan` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jadwal`
+--
+
+INSERT INTO `jadwal` (`id_jadwal`, `username_pasien`, `username_dokter`, `username_admin`, `tanggal`, `jam`, `ruangan`) VALUES
+(1, 'Rendhy2k', 'dokter1', 'admin', '2020-04-01', '15:30-18:30', 'Ruangan 1');
 
 -- --------------------------------------------------------
 
@@ -90,8 +106,8 @@ CREATE TABLE `pasien` (
 --
 
 INSERT INTO `pasien` (`username`, `password`, `nama`, `alamat`, `usia`, `jeniskelamin`) VALUES
-('1', '1', 'Rendhy', 'Taman Cibaduyut', 20, 'Laki-Laki'),
-('2', '2', 'qc', 'qc', 20, 'qc');
+('Rendhy2k', 'password123', 'Rendhy', 'Taman Cibaduyut Indah', 21, 'Laki-Laki'),
+('Saniyah22', '123', 'Sansan', 'Cianjur', 21, 'Perempuan');
 
 --
 -- Indexes for dumped tables
@@ -107,7 +123,8 @@ ALTER TABLE `admin`
 -- Indexes for table `dokter`
 --
 ALTER TABLE `dokter`
-  ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`username`),
+  ADD KEY `username` (`username`);
 
 --
 -- Indexes for table `jadwal`
@@ -115,8 +132,10 @@ ALTER TABLE `dokter`
 ALTER TABLE `jadwal`
   ADD PRIMARY KEY (`id_jadwal`),
   ADD UNIQUE KEY `id_pasien` (`username_pasien`),
-  ADD UNIQUE KEY `id_dokter` (`username_dokter`),
-  ADD UNIQUE KEY `username_admin` (`username_admin`);
+  ADD KEY `username_dokter` (`username_dokter`) USING BTREE,
+  ADD KEY `username_pasien` (`username_pasien`),
+  ADD KEY `username_admin` (`username_admin`) USING BTREE,
+  ADD KEY `id_dokter` (`username_dokter`) USING BTREE;
 
 --
 -- Indexes for table `pasien`
@@ -132,7 +151,7 @@ ALTER TABLE `pasien`
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id_jadwal` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_jadwal` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
