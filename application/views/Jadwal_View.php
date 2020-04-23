@@ -74,6 +74,32 @@
 //     }
 //   })
 
+  $('#formTambahJ').on('submit', function(event) {
+      event.preventDefault();
+      let form = $(this);
+      $.ajax({
+        url: '<?= site_url('Jadwal/tambahJadwal') ?>',
+        type: 'post',
+        data: form.serialize(),
+        dataType: 'JSON',
+        success: function(data){
+          console.log(data)
+          // if (data.cek == true) {
+          //   console.log("berhasil")
+          //   $("#tambahJadwalModal").modal('hide')
+          //   $('#dataJadwal').DataTable().ajax.reload()
+          // }
+          // else {
+          //   console.log("error")
+          // }
+        },
+        // error: function(XMLHttpRequest, textStatus, errorThrown) { 
+        //   console.log(data)
+        //   alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        // } 
+      })
+  });
+
 //Delete
   $('#deleteModal').on('show.bs.modal', function(event) {
         let id_jadwal = $(event.relatedTarget).data('whatever');

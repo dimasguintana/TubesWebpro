@@ -28,6 +28,25 @@ class Jadwal extends CI_Controller {
         $this->Jadwal_Model->deleteJadwal($id_jadwal);
     }
 
+    public function tambahJadwal(){
+        foreach ($_POST as $key => $value) {
+            $d[$key] = $value;
+        }
+        $data = [
+            "username_dokter" => $d['dokterJ'],
+            "username_admin" => $d['adminJ'],
+            "tanggal" => $d['tanggalJ'],
+            "jam" => $d['jamJ'],
+            // "ruangan" => $this->Jadwal_Model->getNamaDokter($d['dokterJ'])
+            "ruangan" => "test",
+		];
+		
+        // $this->Jadwal_Model->tambahDataJadwal($data);
+        $insert["cek"] = true;
+        // echo json_encode($insert);
+        echo json_encode($data);
+    }
+
     
 
 }
