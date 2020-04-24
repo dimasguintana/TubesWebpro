@@ -39,6 +39,15 @@ class Jadwal_Model extends CI_Model {
         return $query;
 	}
 
+	public function getJadwalByDokter2()
+	{
+		$condition = $this->session->userdata('username');
+		// $this->db->get_where('jadwal', array('username_dokter' => $username));
+		$query = $this->db->query("SELECT pasien.nama , jadwal.tanggal, jadwal.jam, jadwal.ruangan , jadwal.id_jadwal FROM jadwal LEFT JOIN pasien ON pasien.username = jadwal.username_pasien LEFT JOIN dokter ON dokter.username = jadwal.username_dokter WHERE jadwal.username_dokter = $condition");
+        return $query->result();
+        //WHERE `dokter`.`username` = ".$condition.";"
+	}
+
 	
 	public function updateJadwal($id_jadwal, $data)
 	{
