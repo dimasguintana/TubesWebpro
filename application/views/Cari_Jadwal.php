@@ -1,17 +1,14 @@
 <?php $this->load->view('template/atas3'); ?>
 <?php $this->load->view('template/carousel');?>
- <div class="py-5">
-    <h1 class="text-center"><?= $title ?></h1>
+ <div class="py-2">
+    <h1 class="text-center">Daftar Jadwal</h1>
     <div class="text-center">
-    <button class="btn btn-success" data-toggle="modal" data-target="#tambahJadwalModal">
-      <i class="fas fa-user-plus"></i> Tambah Jadwal
-    </button>
     <div>
     </div>
     <div class="table-responsive container">
     <div class="d-flex justify-content-end">
     </div>                                                        <!-- id table -->
-      <table class="table table-dark table-hover table-bordered" id="dataJadwal" style="width: 100%">
+      <table class="table table-dark table-hover table-bordered" id="dataJadwalPasien" style="width: 100%">
         <thead>
           <tr>
             <th>Nama Pasien</th>
@@ -26,8 +23,8 @@
   </div>
  <script type="text/javascript">
   $(document).ready(function() {
-    let table = $('#dataJadwal').dataTable({
-      "searching": false,
+    let table = $('#dataJadwalPasien').dataTable({
+      // "searching": false,
       "ordering": true,
       "order": [
         [1, 'asc']
@@ -52,8 +49,8 @@
         },
         {
           "data": "ruangan"
-        },
+        }
       ]
   });
-  });
+});
 </script>

@@ -84,4 +84,12 @@ class Dokter extends CI_Controller {
 		$this->Dokter_Model->deleteDataDokter($username);
 	}
 
+	public function getJadwalD()
+	{
+		$this->load->model('Jadwal_Model');
+		$data=$this->Jadwal_Model->getJadwal();
+
+		echo json_encode($data);
+	}
+
 }
