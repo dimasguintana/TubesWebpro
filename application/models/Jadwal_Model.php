@@ -35,6 +35,12 @@ class Jadwal_Model extends CI_Model {
 		return $this->db->get('jadwal')->row();
 	}
 
+	public function getJadwalByDokter($username)
+	{
+		$query = $this->db->get_where('jadwal', array('username_dokter' => $username));
+        return $query;
+	}
+
 	
 	public function updateJadwal($id_jadwal, $data)
 	{
