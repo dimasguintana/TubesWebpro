@@ -22,11 +22,9 @@ class Jadwal_Model extends CI_Model {
 	}
 
 
-	public function getNamaDokter($username_dokter) {
-		$this->db->select('nama');
-		$this->db->from('dokter');
-		$this->db->where('username', $username_dokter);
-		return $this->db->get();
+	public function getNamaDokter($username) {
+		$query = $this->db->get_where('dokter', array('username' => $username))->row()->nama;
+		return $query;
 	}
 
 	public function getJadwalById($id_jadwal)
