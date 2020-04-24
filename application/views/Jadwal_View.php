@@ -58,7 +58,7 @@
         {
           "data": "id_jadwal",
           "render": function(data, type, row){
-            return `<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-whatever="${data}"><i class="fas fa-user-times"></i></button>`
+            return `<button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" data-whatever="${data}"><i class="fas fa-user-times"></i></button><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateJadwalModal" data-whatever="${data}"><i class="fas fa-user-edit"></i></button>`
           }
         }
       ]
@@ -118,6 +118,42 @@
           $('#dataJadwal').DataTable().ajax.reload()
         })
     });
+
+//Modal Update Jadwal
+  $('#updateJadwalModal').on('show.bs.modal', function(event) {
+    let id_jadwal = $(event.relatedTarget).data('whatever');
+    $.ajax({
+      url: `<?= site_url('Jadwal/getJadwalById/') ?>${id_jadwal}`,
+      type: "GET",
+      dataType: "JSON",
+      success: function(data) {
+        if (data) {
+          $('#tglInput').val(data.tanggal);
+          $('#timeInput').val(data.jam);
+        }
+      }
+    })
+    $('#formUpdateJ').on('submit', function(event) {
+      event.preventDefault();
+      let form = $(this)
+      $.ajax({
+        url: `<?= site_url('Jadwal/updateJadwal/') ?>${id_jadwal}`,
+        type: "POST",
+        data: form.serialize(),
+        dataType: "JSON",
+        success: function(kesuksesan) {
+          if (kesuksesan.sukses) {
+            $("#updateJadwalModal").modal('hide');
+            $('#dataJadwal').DataTable().ajax.reload();
+            $('#admInput').val('');
+            $('#tglInput').val('');
+            $('#timeInput').val('');
+          }
+        }
+      })
+    })
+  });
+
 });
 </script>
 
