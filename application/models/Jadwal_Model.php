@@ -35,7 +35,7 @@ class Jadwal_Model extends CI_Model {
 
 	public function getJadwalByDokter($username)
 	{
-		$query = $this->db->get_where('jadwal', array('username_dokter' => $username));
+		$query = $this->db->get_where('jadwal', array('username_dokter' => $username, 'username_pasien' => NULL));
         return $query;
 	}
 
