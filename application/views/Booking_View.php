@@ -4,7 +4,7 @@
         <h1 style=" color: #FF4F5A; font-size: 50;
         -webkit-text-stroke-width: 0.5px;
         -webkit-text-stroke-color: black;">Booking</h1>
-      <form class='p-5' method="POST" action="#" style= 'background-color: #FF4F5A; border-radius: 25px'>
+      <form class='p-5' method="POST" action="<?= site_url('Jadwal/tambahJadwalPasien/') ?>" style= 'background-color: #FF4F5A; border-radius: 25px'>
 	  <div class="form-group ">
 	      <label class='text-light'for="inputState">Pilih Dokter</label>
 	      <select name="pilDokter" class="form-control" id="pilDokter">
@@ -21,10 +21,10 @@
 	      </select>
 	  </div >
 	  <div class="d-flex align-items-center">
-	    <button type="submit" class="btn btn-light mr-auto" id="register" data-toggle="modal" data-target="#registrasiModal">Book</button>
+	    <button type="submit" class="btn btn-light mr-auto">Book</button>
 	   </div>
       </form>
-      </div>
+</div>
 
 
  <script type="text/javascript">

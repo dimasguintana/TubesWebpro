@@ -48,6 +48,18 @@ class Jadwal extends CI_Controller {
         // echo json_encode($data);
     }
 
+    public function tambahJadwalPasien()
+    {
+        $data = [
+            "username_pasien" => $this->session->userdata('username')
+        ];
+
+        $this->Jadwal_Model->updateJadwal($this->input->post('sub_category', true), $data);
+
+        $content['main_view'] = 'Cari_Jadwal';
+        $this->load->view('Halaman', $content);
+    }
+
     public function getJadwalById($id_jadwal)
     {
         $data = $this->Jadwal_Model->getjadwalById($id_jadwal);
