@@ -1,7 +1,7 @@
 <?php $this->load->view('template/atas2'); ?>
 <?php $this->load->view('template/carousel');?>
 <!-- GET SEMUA DATA JADWAL CUY -->
-  <div class="py-5">
+  <div class="py-2">
     <h1 class="text-center"><?= $title ?></h1>
     <div class="text-center">
     <button class="btn btn-success" data-toggle="modal" data-target="#tambahJadwalModal">

@@ -42,6 +42,12 @@ class Welcome extends CI_Controller {
 		$data['title'] = 'Dokter';
 		$this->load->view('Halaman', $data);
 	}
+
+	public function pasienv2(){
+		$data['main_view'] = 'Cari_Jadwal';
+        $data['title'] = 'Pasien';
+		$this->load->view('Halaman', $data);
+	}
 	
 	public function login()
 	{
