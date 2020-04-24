@@ -22,20 +22,20 @@
   </div>
  <script type="text/javascript">
   $(document).ready(function() {
-    let table = $('#dataPasien2').dataTable({
+    let table = $('#dataPasien2').DataTable({
       // "searching": false,
       "ordering": true,
       "order": [
         [1, 'asc']
       ],
       "ajax": {
-        "url": "<?= site_url('Jadwal/getJadwalByDokter2') ?>",
+        "url": "<?= site_url('Jadwal/getJadwalByDokter2/')?>",
         "type": "GET",
         "dataSrc": ""
       },
       "columns": [
         {
-          "data": "nama"
+          "data": "namapasien"
         },
         {
           "data": "tanggal"
