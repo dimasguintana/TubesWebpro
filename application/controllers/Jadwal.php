@@ -65,6 +65,13 @@ class Jadwal extends CI_Controller {
         echo json_encode($data);
     }
 
+    public function getJadwalByDokter2()
+    {
+        $data = $this->Jadwal_Model->getJadwalByDokter2();
+
+        echo json_encode($data);
+    }
+
     public function updateJadwal($id_jadwal)
     {
         foreach ($_POST as $key => $value) {

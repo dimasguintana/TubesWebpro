@@ -3,7 +3,7 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
   	<img src="<?= base_url('assets/logo-2.jpg') ?>" alt="logo" width=50 height=50 >
    	<a class="navbar-brand" href="#" style= 'color: #FFFFFF;  margin-left: 10px'> Health Home</a>
-   	<a class="nav-item nav-link" href="#" style= 'color: #FFFFFF;  margin-left: 10px'>Daftar Pasien <span class="sr-only">(current)</span></a>
+   	<a class="nav-item nav-link" href="<?= site_url('Welcome/dokterv2')?>" style= 'color: #FFFFFF;  margin-left: 10px'>Daftar Pasien <span class="sr-only">(current)</span></a>
    	<a class="nav-item nav-link" href="<?= site_url('Welcome/dokterv') ?>" style= 'color: #FFFFFF;  margin-left: 10px'>Jadwal Konsul</a>
   </div>
   <div class="d-flex justify-content-end">
