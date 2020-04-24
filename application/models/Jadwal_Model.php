@@ -29,13 +29,18 @@ class Jadwal_Model extends CI_Model {
 		return $this->db->get();
 	}
 
+	public function getJadwalById($id_jadwal)
+	{
+		$this->db->where('id_jadwal', $id_jadwal);
+		return $this->db->get('jadwal')->row();
+	}
+
 	
 	public function updateJadwal($id_jadwal, $data)
 	{
-		$this->db->where('id_jadwal', $username);
+		$this->db->where('id_jadwal', $id_jadwal);
 		return $this->db->update('jadwal', $data);
 	}
-
 
 	
 }
