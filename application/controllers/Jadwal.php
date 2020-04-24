@@ -38,14 +38,12 @@ class Jadwal extends CI_Controller {
             "username_admin" => $d['adminJ'],
             "tanggal" => $d['tanggalJ'],
             "jam" => $d['jamJ'],
-            // "ruangan" => $this->Jadwal_Model->getNamaDokter($d['dokterJ'])
-            "ruangan" => "test",
+            "ruangan" => "Ruangan " . $this->Jadwal_Model->getNamaDokter($d['dokterJ'])
 		];
 		
         $this->Jadwal_Model->tambahDataJadwal($data);
         $insert["cek"] = true;
         echo json_encode($insert);
-        // echo json_encode($data);
     }
 
     public function getJadwalById($id_jadwal)
