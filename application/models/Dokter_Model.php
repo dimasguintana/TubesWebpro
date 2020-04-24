@@ -30,6 +30,13 @@ class Dokter_Model extends CI_Model {
 		return $this->db->delete('dokter');
 	}
 
+	public function getJadwal()
+	{
+		$query=$this->db->query("SELECT * FROM JADWAL JOIN PASIEN ON JADWAL.USERNAME_PASIEN=PASIEN.USERNAME");
+		return $query->result_array();
+	}
+
+
 }
 
 /* End of file Dokter_Model.php */
