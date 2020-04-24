@@ -7,16 +7,17 @@
       <form class='p-5' method="POST" action="#" style= 'background-color: #FF4F5A; border-radius: 25px'>
 	  <div class="form-group ">
 	      <label class='text-light'for="inputState">Pilih Dokter</label>
-	      <select name="pilihdokter" class="form-control">
-	        <option value="Dokter1">Dokter1</option>
-	        <option value="Dokter2">Dokter2</option>
+	      <select name="pilDokter" class="form-control" id="pilDokter">
+	      	<option>No Selected</option>
+	        <?php foreach ($dokter as $dok): ?>
+	        	<option value="<?= $dok['username'] ?>"><?= $dok['nama'] ?></option>
+	        <?php endforeach; ?>
 	      </select>
 	  </div >
 	  <div class="form-group ">
 	      <label class='text-light'for="inputState">Pilih Jadwal</label>
-	      <select name="jeniskelamin" class="form-control">
-	        <option value="1">belomada</option>
-	        <option value="1">belomada</option>
+	      <select name="sub_category" id="sub_category" class="form-control" required>
+	      	<option>No Selected</option>
 	      </select>
 	  </div >
 	  <div class="d-flex align-items-center">
@@ -24,3 +25,33 @@
 	   </div>
       </form>
       </div>
+
+
+ <script type="text/javascript">
+
+ $(document).ready(function(){
+ 
+            $('#pilDokter').change(function(){ 
+                var username=$(this).val();
+                $.ajax({
+                    url : "<?= site_url('Booking/getJadwalByDokter');?>",
+                    method : "POST",
+                    data : {username_dokter: username},
+                    async : true,
+                    dataType : 'json',
+                    success: function(data){
+                         
+                        var html = '';
+                        var i;
+                        for(i=0; i<data.length; i++){
+                             html += '<option value='+data[i].id_jadwal+'>'+data[i].tanggal+' ('+data[i].jam+')'+'</option>';
+                        }
+                        $('#sub_category').html(html);
+ 
+                    }
+                });
+                return false;
+            }); 
+             
+        });
+ </script>
