@@ -9,8 +9,8 @@ class Pasien extends CI_Controller {
 	}
 	public function index()
 	{
-		$content['main_view'] = 'Pasien_View';
-		$content['title'] = 'Data Pasien';
+		$content['main_view'] = 'Halaman_Pasien';
+		$content['title'] = 'Pasien';
 
 		$this->load->view('Halaman', $content);
 	}
