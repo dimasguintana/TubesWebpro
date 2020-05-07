@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pasien extends CI_Controller {
+	//nomor 3, coba cari salahnya dimana...
 	public function __construct()
 	{
 		parent::__construct();
@@ -14,6 +15,7 @@ class Pasien extends CI_Controller {
 
 		$this->load->view('Halaman', $content);
 	}
+	//end of nomor 3
 
 	public function allPasien()
 	{

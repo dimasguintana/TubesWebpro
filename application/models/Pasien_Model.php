@@ -11,11 +11,13 @@ class Pasien_Model extends CI_Model {
 		return $this->db->insert('pasien', $data);
 	}
 
+	//nomor 1
 	public function getPasienByUsername($username)
 	{
 		$this->db->where('username', $username);
 		return $this->db->get('pasien')->row();
 	}
+	//end of nomor 1
 
 	public function updatePasien($username, $data)
 	{
@@ -23,10 +25,12 @@ class Pasien_Model extends CI_Model {
 		return $this->db->update('pasien', $data);
 	}
 
+	//nomor 2 
 	public function deleteDataPasien($username){
 		$this->db->where('username', $username);
 		return $this->db->delete('pasien');
 	}
+	//end of nomor 2
 }
 
 /* End of file Pasien_Model.php */
